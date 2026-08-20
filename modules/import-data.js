@@ -25,16 +25,28 @@ function formatError(error) {
 }
 
 export async function initImportDataModule({ webR, copyFileToWebR, log }) {
-    await copyFileToWebR(
-        webR,
-        R_IMPORT_SCRIPT_SOURCE,
-        R_IMPORT_SCRIPT_PATH
-    );
-
-    await webR.evalRVoid(`source("${R_IMPORT_SCRIPT_PATH}")`);
-
     const { input, status } = addImportInterface();
-    log("Módulo de importación de datos listo.");
+    let rModuleReady = false;
+
+    status.textContent = "Inicializando el módulo R de importación...";
+
+    try {
+        await copyFileToWebR(
+            webR,
+            R_IMPORT_SCRIPT_SOURCE,
+            R_IMPORT_SCRIPT_PATH
+        );
+
+        await webR.evalRVoid(`source("${R_IMPORT_SCRIPT_PATH}")`);
+
+        rModuleReady = true;
+        status.textContent = "Módulo de importación listo. Selecciona un archivo Excel.";
+        log("Módulo de importación de datos listo.");
+    } catch (error) {
+        const message = formatError(error);
+        status.textContent = `ERROR al inicializar el módulo R: ${message}`;
+        log(`ERROR al inicializar el módulo R de importación: ${message}`);
+    }
 
     input.addEventListener("change", async () => {
         const [file] = input.files;
@@ -45,6 +57,12 @@ export async function initImportDataModule({ webR, copyFileToWebR, log }) {
 
         if (!file.name.toLowerCase().endsWith(".xlsx")) {
             status.textContent = "ERROR: selecciona un archivo .xlsx.";
+            input.value = "";
+            return;
+        }
+
+        if (!rModuleReady) {
+            status.textContent = "ERROR: el módulo R de importación no se pudo inicializar.";
             input.value = "";
             return;
         }
