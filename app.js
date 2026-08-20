@@ -88,28 +88,6 @@ async function main() {
 
     await createDirectory(webR, "/R");
     await createDirectory(webR, "/data");
-    await createDirectory(webR, "/packages");
-
-    await createDirectory(
-        webR,
-        "/packages/bin"
-    );
-
-    await createDirectory(
-        webR,
-        "/packages/bin/emscripten"
-    );
-
-    await createDirectory(
-        webR,
-        "/packages/bin/emscripten/contrib"
-    );
-
-    await createDirectory(
-        webR,
-        "/packages/bin/emscripten/contrib/4.6"
-    );
-
 
     // ========================================================
     // Cargar setup.R
@@ -120,40 +98,6 @@ async function main() {
         "./R/setup.R",
         "/R/setup.R"
     );
-
-
-    // ========================================================
-    // Cargar un paquete como prueba
-    // ========================================================
-
-    const packageFile =
-        "jsonlite_2.0.0.tgz";
-
-    await copyFileToWebR(
-        webR,
-
-        "./packages/bin/emscripten/contrib/4.6/" +
-        packageFile,
-
-        "/packages/bin/emscripten/contrib/4.6/" +
-        packageFile
-    );
-
-
-    // ========================================================
-    // Comprobar desde R
-    // ========================================================
-
-    const check = await webR.evalRString(`
-        paste(
-            "jsonlite:",
-            file.exists(
-                "/packages/bin/emscripten/contrib/4.6/jsonlite_2.0.0.tgz"
-            )
-        )
-    `);
-
-    log("R: " + check);
 
 
     // ========================================================

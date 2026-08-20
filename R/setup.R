@@ -28,7 +28,9 @@ packages <- c(
   "dplyr",
   "tidyr",
   "ggplot2",
-  "S4Vectors"
+  "S4Vectors",
+  "SummarizedExperiment",
+  "readxl"
 )
 
 
