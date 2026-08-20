@@ -40,7 +40,7 @@ packages <- c(
 
 message("Instalando paquetes...")
 
-install.packages(
+webr::install(
   packages,
   repos = repos
 )
