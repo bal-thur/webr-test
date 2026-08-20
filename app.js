@@ -1,4 +1,5 @@
 import { WebR, ChannelType } from "./webr.mjs";
+// Modulo de importación de datos
 import { initImportDataModule } from "./modules/import-data.js";
 
 const output = document.getElementById("output");
@@ -9,7 +10,7 @@ function log(message) {
 
 
 // ============================================================
-// Crear directorios de forma compatible con nuestra versión
+// Funcion. Crear directorios de forma compatible con nuestra versión
 // de WebR
 // ============================================================
 
@@ -30,7 +31,7 @@ async function createDirectory(webR, path) {
 
 
 // ============================================================
-// Copiar un archivo del proyecto al filesystem de WebR
+// Funcion. Copiar un archivo del proyecto al filesystem de WebR
 // ============================================================
 
 async function copyFileToWebR(webR, source, destination) {
