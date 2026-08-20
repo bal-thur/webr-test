@@ -1,0 +1,11 @@
+Abrir consola node.js
+
+cambiar ruta
+cd C:\Users\Alexandre>cd C:\Users\Alexandre\Desktop\webr-test
+
+Ejecutar server:
+http-server -c 2
+
+Abrir direccion de: "available on" "127.0.0.1"
+http://192.168.1.75:8080
+
