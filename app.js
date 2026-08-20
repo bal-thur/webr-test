@@ -1,4 +1,5 @@
 import { WebR, ChannelType } from "./webr.mjs";
+import { initImportDataModule } from "./modules/import-data.js";
 
 const output = document.getElementById("output");
 
@@ -104,11 +105,15 @@ async function main() {
     // Ejecutar setup.R
     // ========================================================
 
-    await webR.evalR(`
-        source("/R/setup.R")
-    `);
+    await webR.evalRVoid(`source("/R/setup.R")`);
 
     log("setup.R executed.");
+
+    await initImportDataModule({
+        webR,
+        copyFileToWebR,
+        log
+    });
 }
 
 
