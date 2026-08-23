@@ -1,0 +1,425 @@
+id,lm_id,label,sum_composition,Lipotype,Untargeted,Untargeted_simplify,goslin,Lipid category,Lipid description,Max num FA,Poss num FA,Special Cases,Sum formula,Synonyms
+PA,LMGP10010000,PA,NA,PA,PA,PA,PA,GP,Glycerophosphates [GP10],2,2,NA,C3H7O6P,"GPA,PlsA"
+1_2-DG,LMGL02010000,"1,2-DG",NA,DAG,DG,DG,DG,GL,Diacylglycerols [GL0201],3,2,NA,C3H5O3,DAG
+PC,LMGP01010000,PC,NA,PC,PC,PC,PC,GP,Glycerophosphocholines [GP01],2,2,Ether,C8H18NO6P,"GPC,GPCho,PlsCho"
+acylCoA,LMFA07050000,acyl CoA,NA,NA,NA,NA,CoA,FA,Fatty acyl CoAs [FA0705],1,1,NA,C21H35N7O16P3S,NA
+2-acyl-sn-glycero-3-phosphocholine,LMGP0105AA00,"2-acyl-sn-glycero-
+3-phosphocholine",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+PC-Plasmalogen,LMGP01030000,PC-Plasmalogen,NA,NA,NA,NA,PC P-,GP,Glycerophosphocholines [GP01],2,2,Ether,C8H18NO6P,"GPC,GPCho,PlsCho"
+LPC-Plasmalogen,LMGP01070000,LPC-Plasmalogen,NA,NA,NA,NA,LPC P-,GP,Monoacylglycerophosphocholines [GP0105],2,1,Lyso;Ether,C8H18NO6P,"LysoPC,lysoPC"
+fattyacid,LMFA01010000,fatty acid,NA,FFA,FA,FA,FA,FA,Fatty acids and conjugates [FA01],1,1,NA,HO,fatty acid
+FattyAldehyde,LMFA06000000,Fatty Aldehyde,NA,NA,NA,NA,FAL,FA,Fatty aldehydes [FA06],1,1,NA,H,NA
+TG,LMGL03010000,TG,NA,TAG,TG,TG,TG,GL,Triacylglycerols [GL0301],3,3,NA,C3H5O3,TAG
+CDP-diacylglycerol,LMGP13010000,CDP-diacyl glycerol,NA,CDP-DAG,NA,NA,CDPDAG,GP,CDP-diacylglycerols [GP1301],2,2,NA,C12H19N3O13P2,"CDPDG,CDP-DG,CDP-DAG"
+PI,LMGP06010000,PI,NA,PI,PI,PI,PI,GP,Glycerophosphoinositols [GP06],2,2,NA,C9H17O11P,"GPI,GPIns,PlsIns"
+PGP,LMGP05010000,PGP,NA,NA,NA,NA,PGP,GP,Glycerophosphoglycerophosphates [GP05],2,2,NA,C6H14O11P2,NA
+LPC,LMGP01050000,LPC,NA,LPC,LPC,LPC,LPC,GP,Monoacylglycerophosphocholines [GP0105],2,1,Lyso;Ether,C8H18NO6P,"LysoPC,lysoPC"
+Aceticacid,LMFA01010002,Acetic acid,FA 2:0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Acetyl-CoA,LMFA07050281,Acetyl-CoA,CoA 2:0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LPA,LMGP10050000,LPA,NA,LPA,LPA,LPA,LPA,GP,Monoacylglycerophosphates [GP1005],2,1,Lyso,C3H7O6P,"LysoPA,lysoPA"
+LPE-O,LMGP02060000,LPE-O,NA,LPE O-,EtherLPE,EtherLPE,LPE O-,GP,Monoacylglycerophosphoethanolamines [GP0205],2,1,Lyso;Ether,C5H12NO6P,"LysoPE,lysoPE"
+LPA-O,LMGP10060000,LPA-O,NA,NA,NA,NA,LPA O-,GP,Monoacylglycerophosphates [GP1005],2,1,Lyso,C3H7O6P,"LysoPA,lysoPA"
+PE-Plasmalogen,LMGP02030000,PE-Plasmalogen,NA,NA,EtherPE(P),EtherPE(P),PE P-,GP,Glycerophosphoethanolamines [GP02],2,2,Ether,C5H12NO6P,"GPE,GPEtn,PlsEtn"
+LPE-Plasmalogen,LMGP02070000,LPE-Plasmalogen,NA,NA,NA,NA,LPE P-,GP,Monoacylglycerophosphoethanolamines [GP0205],2,1,Lyso;Ether,C5H12NO6P,"LysoPE,lysoPE"
+PS,LMGP03010000,PS,NA,PS,PS,PS,PS,GP,Glycerophosphoserines [GP03],2,2,NA,C6H12NO8P,"GPS,GPSer,PlsSer"
+Ceramide,LMSP02010000,Ceramide,NA,Cer,"Cer_ADS,Cer_AP,Cer_AS,Cer_BDS,Cer_BS,Cer_HDS,Cer_HS,Cer_EBDS,Cer_EODS,Cer_EOS,Cer_NDS,Cer_NP,Cer_NS",Cer,Cer,SP,Ceramides [SP02],2,2,SP_Exception,H,Ceramide
+N-Acylceramidephosphate,LMSP02050000,"N-
+Acyl ceramide phosphate",NA,NA,CerP,CerP,CerP,SP,Ceramide 1-phosphates [SP0205],2,2,NA,H2O3P,C1P
+FattyAlcohol,LMFA05000000,Fatty Alcohol,NA,NA,NA,NA,FOH,FA,Fatty alcohols [FA05],1,1,NA,H3,fatty alcohol
+Sphingomyelin,LMSP03010000,Sphingomyelin,NA,SM,SM,SM,SM,SP,Ceramide phosphocholines (sphingomyelins) [SP0301],2,2,NA,C5H13NO3P,NA
+Sphingosine,LMSP01010001,Sphingosine,SPB 18:1;O2,NA,Sph,Sph,SPB 18:1;O2,SP,Sphingoid base homologs and variants [SP0104],1,1,Lyso;SP_Exception,H2,"Sphingosine,So,Sphinganine,Sa,SPH,Sph,LCB,SPA"
+PC-O,LMGP01020000,PC-O,NA,PC O-,EtherPC,EtherPC,PC O-,GP,Glycerophosphocholines [GP01],2,2,Ether,C8H18NO6P,"GPC,GPCho,PlsCho"
+LPC-O,LMGP01060000,LPC-O,NA,LPC O-,EtherLPC,EtherLPC,LPC O-,GP,Monoacylglycerophosphocholines [GP0105],2,1,Lyso;Ether,C8H18NO6P,"LysoPC,lysoPC"
+MG,LMGL01010000,MG,NA,MAG,MG,MG,MG,GL,Monoacylglycerols [GL0101],3,1,NA,C3H5O3,MAG
+PG,LMGP04010000,PG,NA,PG,PG,PG,PG,GP,Glycerophosphoglycerols [GP04],2,2,NA,C6H13O8P,"GPG,GPGro,PlsGro"
+Cardiolipin_CL,LMGP12010000,Cardiolipin (CL),NA,CL,CL,CL,CL,GP,Glycerophosphoglycerophosphoglycerols [GP12],4,4,Cardio,C9H18O13P2,NA
+PE,LMGP02010000,PE,NA,PE,PE,PE,PE,GP,Glycerophosphoethanolamines [GP02],2,2,Ether,C5H12NO6P,"GPE,GPEtn,PlsEtn"
+LPS,LMGP03050000,LPS,NA,LPS,LPS,LPS,LPS,GP,Monoacylglycerophosphoserines [GP0305],2,1,Lyso,C6H12NO8P,"LysoPS,lysoPS"
+LPG,LMGP04050000,LPG,NA,LPG,LPG,LPG,LPG,GP,Monoacylglycerophosphoglycerols [GP0405],2,1,Lyso,C6H13O8P,"LysoPG,lysoPG"
+Sphinganine,LMSP01020001,Sphinganine,SPB 18:0;O2,NA,DHSph,DHSph,SPB 18:0;O2,SP,Sphingoid base homologs and variants [SP0104],1,1,Lyso;SP_Exception,H2,"Sphingosine,So,Sphinganine,Sa,SPH,Sph,LCB,SPA"
+Dihydroceramide,LMSP02020000,Dihydroceramide,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LPA-Plasmalogen,LMGP10070000,LPA-Plasmalogen,NA,NA,NA,NA,LPA P-,GP,Monoacylglycerophosphates [GP1005],2,1,Lyso,C3H7O6P,"LysoPA,lysoPA"
+PA-Plasmalogen,LMGP10030000,PA-Plasmalogen,NA,NA,NA,NA,PA P-,GP,Glycerophosphates [GP10],2,2,NA,C3H7O6P,"GPA,PlsA"
+PA-O,LMGP10020000,PA-O,NA,NA,NA,NA,PA O-,GP,Glycerophosphates [GP10],2,2,NA,C3H7O6P,"GPA,PlsA"
+LPE,LMGP02050000,LPE,NA,LPE,LPE,LPE,LPE,GP,Monoacylglycerophosphoethanolamines [GP0205],2,1,Lyso;Ether,C5H12NO6P,"LysoPE,lysoPE"
+5-dehydroepisterol,LMST01030135,5-dehydroepisterol,ST 28:3;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Ergosta-5_7_22E_24_28-tetraenol,LMST01031002,"Ergosta-5,7,22E,24(28)-
+tetraenol",ST 28:4;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Ergosterol,LMST01030093,Ergosterol,ST 28:3;O,Erg,NA,NA,ST 28:3;O,ST,Ergosterols and C24-methyl derivatives [ST0103],0,0,NA,C28H44O,"Ergosterol,ST 28:3;1"
+cycloartenol,LMST01100008,cycloartenol,ST 30:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+3S-squalene-2_3-epoxide,LMPR0106010010,"3S-squalene-
+2,3-epoxide",NA,oxiSqe,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Squalene,LMPR0106010002,Squalene,NA,Sqe,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Tetrahymanol,LMPR0106220001,Tetrahymanol,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+O-acyl-R-carnitine,LMFA07070000,O-acyl-R-carnitine,NA,NA,CAR,CAR,CAR,FA,Fatty acyl carnitines [FA0707],1,1,NA,C7H14O3N,NA
+LPI,LMGP06050000,LPI,NA,LPI,LPI,LPI,LPI,GP,Monoacylglycerophosphoinositols [GP0605],2,1,Lyso,C9H17O11P,"LysoPI,lysoPI"
+PE-O,LMGP02020000,PE-O,NA,PE O-,EtherPE,EtherPE,PE O-,GP,Glycerophosphoethanolamines [GP02],2,2,Ether,C5H12NO6P,"GPE,GPEtn,PlsEtn"
+2-acyl-sn-glycero-3-phosphate,LMGP1005AA00,"2-acyl-sn-glycero-
+3-phosphate",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+DG-O,LMGL02020000,DG-O,NA,NA,EtherDG,EtherDG,DG O-,GL,Diacylglycerols [GL0201],3,2,NA,C3H5O3,DAG
+Lanosterol,LMST01010017,Lanosterol,ST 30:2;O,NA,NA,NA,ST 30:2;O,ST,Cholesterol and derivatives [ST0101],0,0,NA,C30H50O,"Lanosterol,ST 30:2;1"
+24_25-dihydrolanosterol,LMST01010087,"24,25-
+dihydrolanosterol",ST 30:1;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_27-dihydroxycholesterol,LMST04030081,"7alpha,27-
+dihydroxycholesterol",ST 27:1;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+3beta_7alpha-Dihydroxy-5-cholestenoicacid,LMST04030241,"3beta,7alpha-Dihydroxy-
+5-cholestenoic acid",ST 27:2;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_12alpha-Dihydroxy-5beta-cholestan-3-one,LMST04030113,"7alpha,12alpha-Dihydroxy-
+5beta-cholestan-3-one",ST 27:1;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha-Hydroxy-4-cholesten-3-one,LMST04030123,"7alpha-Hydroxy-
+4-cholesten-3-one",ST 27:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha-hydroxy-cholesterol,LMST01010013,"7alpha-hydroxy-
+cholesterol",ST 27:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_25-dihydroxycholesterol,LMST04030166,"7alpha,25-
+dihydroxycholesterol",ST 27:1;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_12alpha-dihydroxy-3-oxo-4-cholestenoicacid,LMST04030243,"7alpha,12alpha-dihydroxy-
+3-oxo-4-cholestenoic acid",ST 27:3;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cholesterol,LMST01010001,Cholesterol,ST 27:1;O,Chol,Cholesterol,Cholesterol,Cholesterol,ST,Cholesterol and derivatives [ST0101],0,0,NA,C27H46O,"CH,FC,Cholesterol,Ch,ST,ST 27:1;1,Chol,cholesterol"
+5_6alpha-epoxy-cholesterol,LMST01010011,"5,6alpha-epoxy-
+cholesterol",ST 27:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-Cholestane-3alpha_7alpha_12alpha-triol,LMST04030035,"5beta-Cholestane-
+3alpha,7alpha,12alpha-triol",ST 27:0;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+_25R-3alpha_7alpha_12alpha-trihydroxy-5beta-cholestan-26-oicacid,LMST04030151,"(25R)-3alpha,7alpha,12alpha-
+trihydroxy-5beta-cholestan-26-oic acid",ST 27:1;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+_25R-5beta-cholestane-3alpha_7alpha_12alpha_26-tetrol,LMST04030160,"(25R)-5beta-cholestane-
+3alpha,7alpha,12alpha,26-tetrol",ST 27:0;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_25-dihydroxycholestenone,LMST04030107,"7alpha,25-
+dihydroxycholestenone",ST 27:2;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5alpha_6beta-dihydroxycholestanol,LMST01010052,"5alpha,6beta-
+dihydroxycholestanol",ST 27:0;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+24S-hydroxy-cholesterol,LMST01010019,"24S-hydroxy-
+cholesterol",ST 27:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+25-hydroxy-cholesterol,LMST01010018,"25-hydroxy-
+cholesterol",ST 27:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+27-hydroxy-cholesterol_25R,LMST01010088,"27-hydroxy-
+cholesterol(25R)",ST 27:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7beta-hydroxycholesterol,LMST01010047,"7beta-
+hydroxycholesterol",ST 27:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7beta_27-dihydroxycholesterol,LMST04030178,"7beta,27-
+dihydroxycholesterol",ST 27:1;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_25_S26-dihydroxycholesterol,LMST01010466,"7alpha,25(S)26-
+dihydroxycholesterol",ST 27:1;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha__25S26-Dihydroxycholest-4-en-3-one,LMST01010465,"7alpha,(25S)26-
+Dihydroxycholest-4-en-3-one",ST 27:2;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cholestenoicacid,LMST04030072,Cholestenoic acid,ST 27:2;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha__25R26-Dihydroxycholest-4-en-3-one,LMST01010463,"7alpha,(25R)26-
+Dihydroxycholest-4-en-3-one",ST 27:2;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha-hydroxy-3-oxo-4-cholestenoicacid,LMST04030242,"7alpha-hydroxy-3-oxo-
+4-cholestenoic acid",ST 27:3;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_12alpha__25R26-Trihydroxycholest-4-en-3-one,LMST01010464,"7alpha,12alpha,(25R)26-
+Trihydroxycholest-4-en-3-one",ST 27:2;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_12alpha__25R26-Trihydroxy-5beta-cholestan-3-one,LMST04030246,"7alpha,12alpha,(25R)26-
+Trihydroxy-5beta-cholestan-3-one",ST 27:1;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_24S-dihydroxycholesterol,LMST04030168,"7alpha,24S-
+dihydroxycholesterol",ST 27:1;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_24S-dihydroxycholest-4-en-3-one,LMST04030216,"7alpha,24S-
+dihydroxycholest-4-en-3-one",ST 27:2;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_24S-Dihydroxy-3-oxocholest-4-en-_25R26-oicacid,LMST04030247,"7alpha,24S-Dihydroxy-3-
+oxocholest-4-en-(25R)26-oic acid",ST 27:3;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_12alpha_25-Trihydroxycholest-4-en-3-one,LMST04030105,"7alpha,12alpha,25-
+Trihydroxycholest-4-en-3-one",ST 27:2;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_12alpha_24_25-Tetrahydroxycholest-4-en-3-one,LMST04030248,"7alpha,12alpha,24,25-
+Tetrahydroxycholest-4-en-3-one",ST 27:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7a_12a_25-Trihydroxycholest-4-en-3_24-dione,LMST04030249,"7a,12a,25-Trihydroxycholest-
+4-en-3,24-dione",ST 27:3;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_12alpha-Dihydroxy-3-oxochol-4-en-24-oicAcid,LMST04010241,"7alpha,12alpha-Dihydroxy-
+3-oxochol-4-en-24-oic Acid",ST 24:3;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cholicacid,LMST04010001,Cholic acid,ST 24:1;O5,NA,BileAcid,BileAcid,NA,NA,NA,NA,NA,NA,NA,NA
+_25R-7alpha-hydroxy-3-oxo-4-cholestenoylCoA,LMST04030252,"(25R)-7alpha-hydroxy-3-
+oxo-4-cholestenoyl CoA",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+_25S-7alpha-hydroxy-3-oxo-4-cholestenoylCoA,LMST04030253,"(25S)-7alpha-hydroxy-3-
+oxo-4-cholestenoyl CoA",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha-Hydroxy-3-oxocholest-4_24_E-dien-26-oyl-CoA,LMST04030258,"7alpha-Hydroxy-3-oxocholest-
+4,24(E)-dien-26-oyl-CoA",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_24R-Dihydroxy-3-oxocholest-4-en-_25R26-oyl-CoA,LMST04030256,"7alpha,24R-Dihydroxy-3-
+oxocholest-4-en-(25R)26-oyl-CoA",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha-Hydroxy-3_24-bisoxocholest-4-en-_25R26-oyl-CoA,LMST04030254,"7alpha-Hydroxy-3,24-
+bisoxocholest-4-en-(25R)26-oyl-CoA",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+3-Oxo-delta4-chenodeoxycholyl-CoA,LMST04010462,"3-Oxo-delta4-
+chenodeoxycholyl-CoA",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+N-_7alpha-Hydroxy-3-oxochol-4-en-24-oyl-glycine,LMST05030020,"N-(7alpha-Hydroxy-3-
+oxochol-4-en-24-oyl)-glycine",ST 24:3;O4;G,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha-Hydroxy-3-oxochol-4-en-24-oicAcid,LMST04010239,"7alpha-Hydroxy-3-
+oxochol-4-en-24-oic Acid",ST 24:3;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+N-_7alpha-Hydroxy-3-oxochol-4-en-24-oyl-taurine,LMST05040022,"N-(7alpha-Hydroxy-3-
+oxochol-4-en-24-oyl)-taurine",ST 24:3;O4;T,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7alpha_24S-Dihydroxy-3-oxocholest-4-en-_25R26-oylCoA,LMST04030251,"7alpha,24S-Dihydroxy-3-
+oxocholest-4-en-(25R)26-oyl CoA",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Anandamide_20_4_n-6,LMFA08040001,"Anandamide (20:4, n-
+6)",NAE 20:4,NAE,NAE,NAE,NAE 20:4,FA,Fatty amides,1,1,NA,C2H6NO,NA
+NAPE_16_0_18_1_9Z_20_4_5Z_8Z_11Z_14Z,LMGP02011263,"NAPE(16:0/18:1(9Z)/
+20:4(5Z,8Z,11Z,14Z)",NAPE 34:1,NA,NA,NA,NAPE 16:0/18:1/20:4,NA,NA,NA,NA,NA,NA,NA
+previtaminD3_precholecalciferol__6Z-tacalciol,LMST03020222,"previtamin D3 / precholecalciferol / (6Z)-
+tacalciol",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7-dehydrocholesterol,LMST01010069,7-dehydrocholesterol,ST 27:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+VitaminD3,LMST03020001,Vitamin D3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+3-ketosphinganine,LMSP01020002,3-ketosphinganine,SPB 18:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Palmitoyl-CoA,LMFA07050360,Palmitoyl-CoA,CoA 16:0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sphingosine-1-phosphate,LMSP01050001,"Sphingosine-
+1-phosphate",SPBP 18:1;O2,NA,NA,NA,SPBP 18:1;O2,NA,NA,NA,NA,NA,NA,NA
+Sphinganine-phosphate,LMSP01050002,"Sphinganine-
+phosphate",SPBP 18:0;O2,NA,NA,NA,SPBP 18:0;O2,NA,NA,NA,NA,NA,NA,NA
+N-acyl-3-oxosphinganine,LMSP02080000,"N-acyl-3-
+oxosphinganine",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+_S-methylmalonyl-CoA,LMFA07050164,"(S)-
+methylmalonyl-CoA",CoA 4:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Propionyl-CoA,LMFA07050364,Propionyl-CoA,CoA 3:0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+_2S-ethylmalonyl-CoA,LMFA07050108,"(2S)-
+ethylmalonyl-CoA",CoA 5:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Butyryl-CoA,LMFA07050292,Butyryl-CoA,CoA 4:0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Crotonoyl-CoA,LMFA07050307,Crotonoyl-CoA,CoA 4:1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+2-Methylacetoacetyl-CoA,LMFA07050189,"2-Methylacetoacetyl-
+CoA",CoA 5:1;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Acetoacetyl-CoA,LMFA07050030,Acetoacetyl-CoA,CoA 4:1;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+_3S-3-hydroxy-3-methylglutaryl-CoA,LMFA07050116,"(3S)-3-hydroxy-3-
+methylglutaryl-CoA",CoA 6:1;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Mevalonicacid,LMFA01050352,Mevalonic acid,FA 6:0;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Mevalonate-P,LMFA01050415,Mevalonate-P,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Mevalonate-PP,LMFA01050416,Mevalonate-PP,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Isopentenylpyrophosphate,LMPR01010008,"Isopentenyl 
+pyrophosphate",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Dimethylallylpyrophosphate,LMPR01010001,"Dimethylallyl 
+pyrophosphate",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Geranyldiphosphate,LMPR0102010001,Geranyl diphosphate,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Farnesyldiphosphate,LMPR0103010002,Farnesyl diphosphate,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Acyladenylate,LMFA07080000,Acyl adenylate,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+1-alkylglycerone3-phosphate,LMGP22020000,"1-alkylglycerone 3-
+phosphate",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+1-acylglycerone3-phosphate,LMGP22010000,"1-acylglycerone 3-
+phosphate",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+PIP[3'],LMGP07010000,PIP[3'],NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+PIP[4'],LMGP070100A0,PIP[4'],NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+PIP[5'],LMGP070100B0,PIP[5'],NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Palmiticacid,LMFA01010001,Palmitic acid,FA 16:0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+2R-hydroxypalmiticacid,LMFA01050423,"2R-
+hydroxypalmitic acid",FA 16:0;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Seminolipid,LMGL05020000,Seminolipid,NA,NA,EtherSMGDG,EtherSMGDG,SMGDG O-,GL,Glycosylalkylacylglycerols [GL0502],2,2,Sugar,C9H16O11S,Seminolipid
+Galactosylalkylacylglycerol,LMGL050200A0,Galactosylalkylacylglycerol,NA,NA,EtherMGDG,EtherMGDG,NA,NA,NA,NA,NA,NA,NA,NA
+N-_acyl-4E_14Z-sphingadienine,LMSP020102A0,"N-(acyl)-4E,14Z-
+sphingadienine",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4-hydroxyestradiol,LMST02010028,4-hydroxyestradiol,ST 18:3;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4-Methoxyestradiol-17beta,LMST02010055,"4-Methoxyestradiol-
+17beta",ST 19:3;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+2-hydroxyestradiol,LMST02010027,2-hydroxyestradiol,ST 18:3;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+2-Methoxyestradiol-17beta,LMST02010035,"2-Methoxyestradiol-
+17beta",ST 19:3;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4-hydroxyestrone,LMST02010056,4-hydroxyestrone,ST 18:4;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4-Methoxyestrone,LMST02010057,4-Methoxyestrone,ST 19:4;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+2-Hydroxyestrone,LMST02010032,2-Hydroxyestrone,ST 18:4;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+2-Methoxyestrone,LMST02010033,2-Methoxyestrone,ST 19:4;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Beta-estradiol,LMST02010001,Beta-estradiol,ST 18:3;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Estriol,LMST02010003,Estriol,ST 18:3;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+16alpha-hydroxyestrone,LMST02010041,"16alpha-
+hydroxyestrone",ST 18:4;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Estrone,LMST02010004,Estrone,ST 18:4;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+estrone3-sulfate,LMST02010043,estrone 3-sulfate,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Testosterone,LMST02020002,Testosterone,ST 19:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Androstenedione,LMST02020007,Androstenedione,ST 19:3;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+22R-hydroxycholesterol,LMST01010086,"22R-
+hydroxycholesterol",ST 27:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+_20R_22R-20_22-dihydroxycholesterol,LMST01010200,"(20R,22R)-20,22-
+dihydroxycholesterol",ST 27:1;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Pregnenolone,LMST02030088,Pregnenolone,ST 21:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Pregn-5-ene-3beta_20alpha-diol,LMST02030205,"Pregn-5-ene-
+3beta,20alpha-diol",ST 21:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+progesterone,LMST02030159,progesterone,ST 21:3;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+17alpha-hydroxypregnenolone,LMST02030089,"17alpha-
+hydroxypregnenolone",ST 21:2;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Pregn-5-ene-3beta_17alpha_20alpha-triol,LMST02030263,"Pregn-5-ene-
+3beta,17alpha,20alpha-triol",ST 21:1;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+17alpha-hydroxyprogesterone,LMST02030161,"17alpha-
+hydroxyprogesterone",ST 21:3;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5alpha-pregnane-3_20-dione,LMST02030170,"5alpha-pregnane-
+3,20-dione",ST 21:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Allopregnanolone,LMST02030130,Allopregnanolone,ST 21:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+11-deoxycortisol,LMST02030086,11-deoxycortisol,ST 21:3;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+11-deoxycorticosterone,LMST02030087,"11-
+deoxycorticosterone",ST 21:3;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+_20S-20-hydroxypregn-4-en-3-one,LMST02030169,"(20S)-20-hydroxypregn-
+4-en-3-one",ST 21:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-pregnane-3_20-dione,LMST02030146,"5beta-pregnane-
+3,20-dione",ST 21:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+3alpha-hydroxy-5beta-pregnan-20-one,LMST02030175,"3alpha-hydroxy-
+5beta-pregnan-20-one",ST 21:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Pregnanediol,LMST02030264,Pregnanediol,ST 21:0;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Dihydrosphingomyelin,LMSP030100A0,Dihydrosphingomyelin,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-dihydrodeoxycorticosterone,LMST02030282,"5beta-
+dihydrodeoxycorticosterone",ST 21:2;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21-Hydroxy-5beta-pregnane-3_11_20-trione,LMST02030285,"21-Hydroxy-5beta-
+pregnane-3,11,20-trione",ST 21:3;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+3alpha_21-dihydroxy-5beta-pregnane-11_20-dione,LMST02030288,"3alpha,21-dihydroxy-
+5beta-pregnane-11,20-dione",ST 21:2;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+18-Hydroxycorticosterone,LMST02030091,"18-
+Hydroxycorticosterone",ST 21:3;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+corticosterone,LMST02030186,corticosterone,ST 21:3;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+11beta_18_21-trihydroxy-5beta-pregnan-3_20-dione,LMST02030277,"11beta,18,21-trihydroxy-
+5beta-pregnan-3,20-dione",ST 21:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Aldosterone,LMST02030026,Aldosterone,ST 21:4;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Tetrahydrocorticosterone,LMST02030100,Tetrahydrocorticosterone,ST 21:1;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-Dihydrocorticosterone,LMST02030280,"5beta-
+Dihydrocorticosterone",ST 21:2;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5alpha-Tetrahydrocorticosterone,LMST02030142,"5alpha-
+Tetrahydrocorticosterone",ST 21:1;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5alpha-Dihydrocorticosterone,LMST02030281,"5alpha-
+Dihydrocorticosterone",ST 21:2;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+11-Dehydrocorticosterone,LMST02030284,"11-
+Dehydrocorticosterone",ST 21:4;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21-Hydroxy-5alpha-pregnane-3_11_20-trione,LMST02030286,"21-Hydroxy-5alpha-
+pregnane-3,11,20-trione",ST 21:3;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Tetrahydrodeoxycorticosterone,LMST02030283,Tetrahydrodeoxycorticosterone,ST 21:1;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-Dihydroaldosterone,LMST02030276,"5beta-
+Dihydroaldosterone",ST 21:3;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+3alpha_11beta_18_21-tetrahydroxy-5beta-pregnan-20-one,LMST02030278,"3alpha,11beta,18,21-
+tetrahydroxy-5beta-pregnan-20-one",ST 21:1;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Alfadolone,LMST02030287,Alfadolone,ST 21:2;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Tetrahydroaldosterone,LMST02030275,Tetrahydroaldosterone,ST 21:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Aldosterone18-glucuronide,LMST05010062,"Aldosterone 18-
+glucuronide",ST 21:4;O5;GlcA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+18-Hydroxy-11-dehydrotetrahydrocorticosterone,LMST02030279,"18-Hydroxy-11-
+dehydrotetrahydrocorticosterone",ST 21:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+HexCer,LMSP0501AA00,GlcCer,NA,HexCer,"HexCer_ADS,HexCer_AP,HexCer_AS,HexCer_BDS,HexCer_BS,HexCer_HDS,HexCer_HS,HexCer_EOS,HexCer_NDS,HexCer_NP,HexCer_NS",HexCer,HexCer,SP,Neutral glycosphingolipids [SP05],2,2,NA,C6H11O5,"Glucosylceramide,CMH,CMH-OH,MHCER,MHCer"
+Glucosylsphingosine,LMSP05010031,Glucosyl sphingosine,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cortisone,LMST02030090,Cortisone,ST 21:4;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4_5beta-Dihydrocortisone,LMST02030095,"4,5beta-
+Dihydrocortisone",ST 21:3;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cortisol,LMST02030001,Cortisol,ST 21:3;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+18-hydroxycortisol,LMST02030295,18-hydroxycortisol,ST 21:3;O6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+18-oxo-cortisol,LMST02030296,18-oxo-cortisol,ST 21:4;O6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21-Deoxycortisol,LMST02030195,21-Deoxycortisol,ST 21:3;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+20beta-Dihydrocortisone,LMST02030266,"20beta-
+Dihydrocortisone",ST 21:3;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Urocortisone,LMST02030098,Urocortisone,ST 21:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5a-Tetrahydrocortisol,LMST02030200,"5a-
+Tetrahydrocortisol",ST 21:1;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5alpha-Dihydrocortisol,LMST02030272,"5alpha-
+Dihydrocortisol",ST 21:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Tetrahydrocortisol,LMST02030143,Tetrahydrocortisol,ST 21:1;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+alpha-Cortol,LMST02030228,alpha-Cortol,ST 21:0;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+18-oxo-dihydrocortisol,LMST02030297,"18-oxo-
+dihydrocortisol",ST 21:3;O6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+20alpha-Dihydrocortisone,LMST02030265,"20alpha-
+Dihydrocortisone",ST 21:3;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+6beta-Hydroxycortisol,LMST02030269,"6beta-
+Hydroxycortisol",ST 21:3;O6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+21-Deoxycortisone,LMST02030289,21-Deoxycortisone,ST 21:4;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+beta-Cortolone,LMST02030230,beta-Cortolone,ST 21:1;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-pregnane-17alpha_20beta_21-triol-3_11-dione,LMST02030268,"5beta-pregnane-17alpha,20beta,21-
+triol-3,11-dione",ST 21:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-Dihydrocortisol,LMST02030204,"5beta-
+Dihydrocortisol",ST 21:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-Pregnane-17alpha-ol-3_11_20-trione,LMST02030291,"5beta-Pregnane-17alpha-
+ol-3,11,20-trione",ST 21:3;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+20beta-Hydroxycortisol,LMST02030270,"20beta-
+Hydroxycortisol",ST 21:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-pregnane-11beta_17alpha_20beta_21-tetrol-3-one,LMST02030274,"5beta-pregnane-
+11beta,17alpha,20beta,21-tetrol-3-one",ST 22:1;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+20alpha-Hydroxycortisol,LMST02030271,"20alpha-
+Hydroxycortisol",ST 21:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-pregnane-11beta_17alpha_20alpha_21-tetrol-3-one,LMST02030273,"5beta-pregnane-
+11beta,17alpha,20alpha,21-tetrol-3-one",ST 22:1;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-pregnane-17alpha_20alpha_21-triol-3_11-dione,LMST02030267,"5beta-pregnane-17alpha,20alpha,21-
+triol-3,11-dione",ST 21:2;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-Pregnane-3alpha_17alpha-diol-11_20-dione,LMST02030292,"5beta-Pregnane-3alpha,17alpha-
+diol-11,20-dione",ST 21:2;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+alpha-Cortolone,LMST02030227,alpha-Cortolone,ST 21:1;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+18-oxo-tetrahydrocortisol,LMST02030298,"18-oxo-
+tetrahydrocortisol",ST 21:2;O6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Pregnanetriolone,LMST02030290,Pregnanetriolone,ST 21:1;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5beta-Pregnane-17alpha_20alpha-diol-3_11-dione,LMST02030293,"5beta-Pregnane-
+17alpha,20alpha-diol-3,11-dione",ST 21:2;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4-Pregnene-17alpha_20alpha-diol-3_11-dione,LMST02030294,"4-Pregnene-17alpha,20alpha-
+diol-3,11-dione",ST 21:3;O4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+beta-Cortol,LMST02030229,beta-Cortol,ST 21:0;O5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+isoprogesterone,LMST02030299,isoprogesterone,ST 21:3;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LacCer,LMSP0501AB00,LacCer,NA,DiHexCer,Hex2Cer,Hex2Cer,Hex2Cer,SP,Neutral glycosphingolipids [SP05],2,2,NA,C12H21O10,"CDH,DHCer,DHCER"
+Gb3,LMSP0502AA00,Gb3,NA,Gb3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+HexCer,LMSP0501AC00,GalCer,NA,HexCer,"HexCer_ADS,HexCer_AP,HexCer_AS,HexCer_BDS,HexCer_BS,HexCer_HDS,HexCer_HS,HexCer_EOS,HexCer_NDS,HexCer_NP,HexCer_NS",HexCer,HexCer,SP,Neutral glycosphingolipids [SP05],2,2,NA,C6H11O5,"Glucosylceramide,CMH,CMH-OH,MHCER,MHCer"
+Galalpha1-4Galbeta-Cer,LMSP0509AA00,"Galalpha1-
+4Galbeta-Cer",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AminoCTH_Lc3Cer,LMSP0504AA00,"Amino CTH, Lc3Cer",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+asialo-GM2_GA2_Tay-Sachsgloboside,LMSP0503AA00,"asialo-GM2, GA2, Tay-
+Sachs globoside",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Isoglobotriglycosylceramide,LMSP0506AQ00,Isoglobotriglycosylceramide,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+SM4,LMSP0602AN00,SM4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LM1_iso-LM1,LMSP0504AB00,"LM1, iso-LM1",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GM3,LMSP0601AJ00,GM3,NA,GM3,GM3,GM3,GM3,SP,Glycosphingolipids,2,2,NA,C23H38NO18,Gm3
+SM3,LMSP0602AA00,SM3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+paragloboside_nLc4Cer,LMSP0505AA00,"paragloboside, 
+nLc4Cer",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GM4,LMSP0601AA00,GM4,NA,GM4,NA,NA,GM4,SP,Gangliosides [SP0601],2,2,NA,C17H28NO13,Gm4
+Phosphatidylethanol,LMGP23010000,Phosphatidylethanol,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Colneleicacid,LMFA10000001,Colneleic acid,FA 18:3;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+9S-HpODE,LMFA02000012,9S-HpODE,FA 18:2;O2,oxiODE,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cholesterolester,LMST01020000,Cholesterol ester,NA,CE,CE,CE,CE,ST,Sterol esters [ST0102],1,1,Ester,C27H45O,"ChE,CE,Cholesteryl ester,Cholesterol ester,SE,Sterol ester,ChoE,CholE"
+Sebaleicacid,LMFA01030323,Sebaleic acid,FA 18:2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5S-HODE,LMFA02000394,5S-HODE,FA 18:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5S_18-diHODE,LMFA02000397,"5S,18-diHODE",FA 18:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5-KODE,LMFA02000395,5-KODE,FA 18:3;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5-oxo-18-ODE,LMFA02000396,5-oxo-18-ODE,FA 18:3;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Psychosine,LMSP07000001,Psychosine,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4_4-dimethylcholesta-8_14_24-trienol,LMST01010149,"4,4-dimethylcholesta-
+8,14,24-trienol",ST 29:3;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4_4-dimethylcholesta-8_14-dienol,LMST01010277,"4,4-dimethylcholesta-
+8,14-dienol",ST 29:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-formyl-4beta-methyl-5alpha-cholesta-8_24-dien-3beta-ol,LMST01010229,"4alpha-formyl-4beta-methyl-
+5alpha-cholesta-8,24-dien-3beta-ol",ST 29:3;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4beta-methyl-zymosterol-4alpha-carboxylicacid,LMST01010388,"4beta-methyl-zymosterol-
+4alpha-carboxylic acid",ST 29:3;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4_4-dimethyl-14alpha-formyl-5alpha-cholest-8-en-3beta-ol,LMST01010223,"4,4-dimethyl-14alpha-formyl-
+5alpha-cholest-8-en-3beta-ol",ST 30:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+14-demethyllanosterol,LMST01010176,"14-
+demethyllanosterol",ST 29:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-hydroxymethyl-4beta-methyl-5alpha-cholesta-8_24-dien-3beta-ol,LMST01010232,"4alpha-hydroxymethyl-4beta-methyl-
+5alpha-cholesta-8,24-dien-3beta-ol",ST 29:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-Formyl-5alpha-cholesta-8_24-dien-3beta-ol,LMST01010226,"4alpha-Formyl-5alpha-
+cholesta-8,24-dien-3beta-ol",ST 28:3;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-carboxy-zymosterol,LMST01010522,"4alpha-carboxy-
+zymosterol",ST 28:3;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+32-hydroxylanosterol,LMST01010124,32-hydroxylanosterol,ST 30:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+27-hydroxy-cholesterol,LMST01010057,"27-hydroxy-
+cholesterol",ST 27:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Presqualenediphosphate,LMPR0106010003,"Presqualene 
+diphosphate",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Zymostenol,LMST01010096,Zymostenol,ST 27:1;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5alpha-cholest-8-en-3-one,LMST01010239,"5alpha-cholest-
+8-en-3-one",ST 27:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+32-oxolanosterol,LMST01010222,32-oxolanosterol,ST 30:3;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4beta-hydroxy-cholesterol,LMST01010014,"4beta-hydroxy-
+cholesterol",ST 27:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-carboxy-5alpha-cholesta-8-en-3beta-ol,LMST01010228,"4alpha-carboxy-5alpha-
+cholesta-8-en-3beta-ol",ST 28:2;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-formyl-5alpha-cholesta-8-en-3beta-ol,LMST01010231,"4alpha-formyl-5alpha-
+cholesta-8-en-3beta-ol",ST 28:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+7-oxo-cholesterol,LMST01010049,7-oxo-cholesterol,ST 27:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cholestenone,LMST01010015,Cholestenone,ST 27:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Diepoxysqualene,LMPR0106010038,Diepoxysqualene,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-hydroxymethyl-5alpha-cholesta-8-en-3beta-ol,LMST01010235,"4alpha-hydroxymethyl-5alpha-
+cholesta-8-en-3beta-ol",ST 28:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Zymosterol,LMST01010066,Zymosterol,ST 27:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Zymosterone,LMST01010168,Zymosterone,ST 27:3;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Desmosterol,LMST01010016,Desmosterol,ST 27:2;O,NA,ST,ST,ST 27:2;O,ST,Cholesterol and derivatives [ST0101],0,0,NA,C27H44O,"Desmosterol,ST 27:2;1"
+7-dehydro-desmosterol,LMST01010121,"7-dehydro-
+desmosterol",ST 27:3;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-methylzymosterol,LMST01010202,"4alpha-
+methylzymosterol",ST 28:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+3-keto-4alpha-methyl-zymosterol,LMST01010237,"3-keto-4alpha-
+methyl-zymosterol",ST 28:3;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+5alpha-cholesta-7_24-dien-3beta-ol,LMST01010206,"5alpha-cholesta-
+7,24-dien-3beta-ol",ST 27:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-hydroxymethyl-5alpha-cholesta-8_24-dien-3beta-ol,LMST01010234,"4alpha-hydroxymethyl-5alpha-
+cholesta-8,24-dien-3beta-ol",ST 28:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4_4-Dimethylcholest-8-enol,LMST01010225,"4,4-Dimethylcholest-
+8-enol",ST 29:1;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-hydroxymethyl-4beta-methyl-5alpha-cholesta-8-en-3beta-ol,LMST01010233,"4alpha-hydroxymethyl-4beta-methyl-
+5alpha-cholesta-8-en-3beta-ol",ST 29:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4_4-dimethyl-14alpha-hydroxymethyl-5alpha-cholest-8-en-3beta-ol,LMST01010224,"4,4-dimethyl-14alpha-hydroxymethyl-
+5alpha-cholest-8-en-3beta-ol",ST 30:1;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-formyl-4beta-methyl-5alpha-cholesta-8-en-3beta-ol,LMST01010230,"4alpha-formyl-4beta-methyl-
+5alpha-cholesta-8-en-3beta-ol",ST 29:2;O2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Lathosterol,LMST01010089,Lathosterol,ST 27:1;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-methylcholest-8-en-3beta-ol,LMST01010197,"4alpha-methylcholest-
+8-en-3beta-ol",ST 28:1;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-carboxy-4beta-methyl-5alpha-cholesta-8-en-3beta-ol,LMST01010227,"4alpha-carboxy-4beta-methyl-
+5alpha-cholesta-8-en-3beta-ol",ST 29:2;O3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+4alpha-methyl-5alpha-cholesta-8-en-3-one,LMST01010236,"4alpha-methyl-5alpha-
+cholesta-8-en-3-one",ST 28:2;O,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA

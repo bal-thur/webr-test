@@ -1,72 +1,3 @@
-#### Setup
-
-message("Iniciando setup")
-
-
-## ============================================================
-## 1. Instalación de librerías
-## ============================================================
-
-repos <- c(
-  "https://bioc.r-universe.dev",
-  "https://tidyverse.r-universe.dev",
-  "https://repo.r-wasm.org"
-)
-
-packages <- c(
-  "mixOmics",
-  "dplyr",
-  "tidyr",
-  "ggplot2",
-  "S4Vectors",
-  "SummarizedExperiment",
-  "readxl"
-)
-
-message("Instalando paquetes...")
-
-webr::install(
-  packages,
-  repos = repos
-)
-
-
-## ============================================================
-## 2. Comprobación de paquetes
-## ============================================================
-
-message("")
-message("Comprobando paquetes instalados:")
-
-installed <- rownames(installed.packages())
-
-for (pkg in packages) {
-  
-  if (pkg %in% installed) {
-    
-    message(
-      "  OK  ",
-      pkg,
-      " ",
-      as.character(packageVersion(pkg))
-    )
-    
-  } else {
-    
-    message(
-      "  ERROR  ",
-      pkg,
-      " no está instalado"
-    )
-  }
-}
-
-
-## ============================================================
-## 3. Cargar scripts R
-## ============================================================
-
-source("/R/import_data.R")
 
 
 ## ============================================================
@@ -74,17 +5,17 @@ source("/R/import_data.R")
 ## ============================================================
 
 lipid_data <- read.csv(
-  "/data/lipid_data.csv",
+  "data/lipid_data.csv",
   stringsAsFactors = FALSE
 )
 
 palette <- read.csv(
-  "/data/palette.csv",
+  "data/palette.csv",
   stringsAsFactors = FALSE
 )
 
 process_parameters <- read.csv(
-  "/data/process_parameters.csv",
+  "data/process_parameters.csv",
   stringsAsFactors = FALSE
 )
 
@@ -162,7 +93,42 @@ for (i in seq_len(nrow(process_parameters))) {
     converted_value
 }
 
-## Limpiar memoria
-rm(process_parameters)
 
-message("Setup terminado")
+## ============================================================
+## 8. Comprobación de los parámetros
+## ============================================================
+
+message("")
+message("Parámetros de procesamiento cargados:")
+
+for (process in names(processing_parameters)) {
+  
+  message("")
+  message("  ", process)
+  
+  for (parameter in names(processing_parameters[[process]])) {
+    
+    value <- processing_parameters[[process]][[parameter]]
+    
+    if (is.null(value)) {
+      
+      message(
+        "    ",
+        parameter,
+        " = NULL"
+      )
+      
+    } else {
+      
+      message(
+        "    ",
+        parameter,
+        " = ",
+        as.character(value)
+      )
+    }
+  }
+}
+## ============================================================
+## 9. Setup terminado
+## ============================================================

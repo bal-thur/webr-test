@@ -92,15 +92,20 @@ async function main() {
     await createDirectory(webR, "/data");
 
     // ========================================================
-    // Cargar setup.R
+    // Cargar scripts
     // ========================================================
 
-    await copyFileToWebR(
-        webR,
-        "./R/setup.R",
-        "/R/setup.R"
-    );
-
+    await copyFileToWebR(webR,"./R/setup.R","/R/setup.R");
+    await copyFileToWebR(webR,"./R/import_data.R","/R/import_data.R");
+    
+    
+    // ========================================================
+    // Cargar archivos
+    // =======================================================
+    
+    await copyFileToWebR(webR,"./data/lipid_data.csv","/data/lipid_data.csv");
+    await copyFileToWebR(webR,"./data/palette.csv","/data/palette.csv");
+    await copyFileToWebR(webR,"./data/process_parameters.csv","/data/process_parameters.csv");
 
     // ========================================================
     // Ejecutar setup.R
