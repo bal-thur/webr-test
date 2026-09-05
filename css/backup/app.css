@@ -240,6 +240,13 @@ body {
     font-weight: 600;
 }
 
+.module-content {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
 /* --------------------------------------------------
    Common module containers
    -------------------------------------------------- */

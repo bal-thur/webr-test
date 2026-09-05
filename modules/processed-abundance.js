@@ -1,19 +1,17 @@
 import { createModule } from "./module-template.js";
 
 
-export async function initRawAbundanceModule({ webR, log }) {
+export async function initProcessedAbundanceModule({ webR, log }) {
 
     const {
         container,
         content
-    } = createModule("Abundance");
+    } = createModule("Processed Abundance");
 
 
     const status =
         document.createElement("p");
 
-    status.textContent =
-        "Loading raw abundance...";
 
     content.appendChild(status);
 
@@ -22,34 +20,34 @@ export async function initRawAbundanceModule({ webR, log }) {
 
         const json =
             await webR.evalRString(
-                "get_raw_abundance()"
+                "get_processed_abundance()"
             );
 
 
-        const rawAbundance =
+        const processedAbundance =
             JSON.parse(json);
 
 
         log(
-            "Raw abundance received from R."
+            "Processed abundance received from R."
         );
 
         log(
-            `Rows: ${rawAbundance.length}`
+            `Rows: ${processedAbundance.length}`
         );
 
         log(
-            `Columns: ${Object.keys(rawAbundance[0]).length}`
+            `Columns: ${Object.keys(processedAbundance[0]).length}`
         );
 
 
         status.textContent =
-            `Lipid number: ${rawAbundance.length}`;
+            `Lipid number: ${processedAbundance.length}`;
 
 
         console.log(
             "Raw abundance:",
-            rawAbundance
+            processedAbundance
         );
 
 
@@ -76,7 +74,7 @@ export async function initRawAbundanceModule({ webR, log }) {
 
 
         const columns =
-            Object.keys(rawAbundance[0]);
+            Object.keys(processedAbundance[0]);
 
 
         columns.forEach(column => {
@@ -103,7 +101,7 @@ export async function initRawAbundanceModule({ webR, log }) {
             document.createElement("tbody");
 
 
-        rawAbundance.forEach(row => {
+        processedAbundance.forEach(row => {
 
             const tr =
                 document.createElement("tr");
@@ -147,40 +145,40 @@ export async function initRawAbundanceModule({ webR, log }) {
 
 
         const tableContainer =
-    document.createElement("div");
+        document.createElement("div");
 
-tableContainer.className =
-    "data-table-container";
+        tableContainer.className =
+        "data-table-container";
 
-tableContainer.appendChild(table);
+        tableContainer.appendChild(table);
 
-content.appendChild(tableContainer);
+        content.appendChild(tableContainer);
 
 
         return {
             container,
-            rawAbundance
+            processedAbundance
         };
 
 
     } catch (error) {
 
         console.error(
-            "Error loading raw abundance:",
+            "Error loading processed abundance:",
             error
         );
 
         status.textContent =
-            "Error loading raw abundance.";
+            "Error loading processed abundance.";
 
         log(
-            `Error loading raw abundance: ${error.message}`
+            `Error loading processed abundance: ${error.message}`
         );
 
 
         return {
             container,
-            rawAbundance: null
+            processedAbundance: null
         };
 
     }

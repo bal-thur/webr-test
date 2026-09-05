@@ -782,12 +782,12 @@ summarise_processed_se <- function() {
       ),
       
       paste0(
-        "Número de muestras: ",
+        "Sample number: ",
         ncol(object)
       ),
       
       paste0(
-        "Número de features: ",
+        "Lipid number: ",
         nrow(object)
       ),
       

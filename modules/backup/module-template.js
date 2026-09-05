@@ -42,6 +42,26 @@ export function createModule(titleText) {
         "content-container";
 
 
+    const controls =
+        document.createElement("div");
+
+    controls.className =
+        "module-controls";
+
+
+    const results =
+        document.createElement("div");
+
+    results.className =
+        "module-results";
+
+
+    content.append(
+        controls,
+        results
+    );
+
+
     // ============================================================
     // Module
     // ============================================================
@@ -55,6 +75,7 @@ export function createModule(titleText) {
     return {
         container,
         title,
-        content
+        controls,
+        results
     };
 }

@@ -1,19 +1,17 @@
 import { createModule } from "./module-template.js";
 
 
-export async function initRawAbundanceModule({ webR, log }) {
+export async function initLipidMetadataModule({ webR, log }) {
 
     const {
         container,
         content
-    } = createModule("Abundance");
+    } = createModule("Lipid metadata");
 
 
     const status =
         document.createElement("p");
 
-    status.textContent =
-        "Loading raw abundance...";
 
     content.appendChild(status);
 
@@ -22,34 +20,22 @@ export async function initRawAbundanceModule({ webR, log }) {
 
         const json =
             await webR.evalRString(
-                "get_raw_abundance()"
+                "get_lipid_metadata()"
             );
 
 
-        const rawAbundance =
+        const lipidMetadata =
             JSON.parse(json);
 
 
         log(
-            "Raw abundance received from R."
+            "Lipid metadata received from R."
         );
-
-        log(
-            `Rows: ${rawAbundance.length}`
-        );
-
-        log(
-            `Columns: ${Object.keys(rawAbundance[0]).length}`
-        );
-
-
-        status.textContent =
-            `Lipid number: ${rawAbundance.length}`;
 
 
         console.log(
-            "Raw abundance:",
-            rawAbundance
+            "Lipid metadata:",
+            lipidMetadata
         );
 
 
@@ -76,7 +62,7 @@ export async function initRawAbundanceModule({ webR, log }) {
 
 
         const columns =
-            Object.keys(rawAbundance[0]);
+            Object.keys(lipidMetadata[0]);
 
 
         columns.forEach(column => {
@@ -103,7 +89,7 @@ export async function initRawAbundanceModule({ webR, log }) {
             document.createElement("tbody");
 
 
-        rawAbundance.forEach(row => {
+        lipidMetadata.forEach(row => {
 
             const tr =
                 document.createElement("tr");
@@ -159,7 +145,7 @@ content.appendChild(tableContainer);
 
         return {
             container,
-            rawAbundance
+            lipidMetadata
         };
 
 
@@ -180,7 +166,7 @@ content.appendChild(tableContainer);
 
         return {
             container,
-            rawAbundance: null
+            lipidMetadata: null
         };
 
     }

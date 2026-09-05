@@ -82,11 +82,20 @@ if (length(missing_packages) > 0) {
 ## 3. Cargar scripts R
 ## ============================================================
 
+
+## Etapa 1: Importación y data overview
 source("/R/import_data.R")
+source("/R/rawAbundance.R")
+source("/R/se_statistics.R")
+source("/R/lipid_metadata.R")
+source("/R/lipid_number.R")
+
+## Etapa 2: Procesado y data quality
 source("/R/get_process_options.R")
 source("/R/process_se.R")
-source("/R/rawAbundance.R")
+source("/R/processedAbundance.R")
 
+## Etapa 3: Análisis
 
 ## ============================================================
 ## 4. Cargar archivos de configuración

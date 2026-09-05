@@ -10,8 +10,7 @@ export async function initDataAnalysisModule({
 
     const {
         container,
-        controls,
-        results
+        content
     } = createModule(
         "Data analysis"
     );
@@ -34,11 +33,11 @@ export async function initDataAnalysisModule({
         "Run analysis";
 
 
-    controls.append(
+    content.append(
         runButton
     );
 
-    results.append(
+    content.append(
         status
     );
 

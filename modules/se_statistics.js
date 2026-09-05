@@ -1,19 +1,19 @@
 import { createModule } from "./module-template.js";
 
 
-export async function initRawAbundanceModule({ webR, log }) {
+export async function initSeStatisticsModule({ webR, log }) {
 
     const {
         container,
         content
-    } = createModule("Abundance");
+    } = createModule("Statistics");
 
 
     const status =
         document.createElement("p");
 
-    status.textContent =
-        "Loading raw abundance...";
+    //status.textContent =
+    //    "Loading statistics...";
 
     content.appendChild(status);
 
@@ -22,34 +22,22 @@ export async function initRawAbundanceModule({ webR, log }) {
 
         const json =
             await webR.evalRString(
-                "get_raw_abundance()"
+                "get_se_statistics()"
             );
 
 
-        const rawAbundance =
+        const seStatistics =
             JSON.parse(json);
 
 
         log(
-            "Raw abundance received from R."
+            "Statistics received from R."
         );
-
-        log(
-            `Rows: ${rawAbundance.length}`
-        );
-
-        log(
-            `Columns: ${Object.keys(rawAbundance[0]).length}`
-        );
-
-
-        status.textContent =
-            `Lipid number: ${rawAbundance.length}`;
 
 
         console.log(
-            "Raw abundance:",
-            rawAbundance
+            "Se Statistics:",
+            seStatistics
         );
 
 
@@ -76,7 +64,7 @@ export async function initRawAbundanceModule({ webR, log }) {
 
 
         const columns =
-            Object.keys(rawAbundance[0]);
+            Object.keys(seStatistics[0]);
 
 
         columns.forEach(column => {
@@ -103,7 +91,7 @@ export async function initRawAbundanceModule({ webR, log }) {
             document.createElement("tbody");
 
 
-        rawAbundance.forEach(row => {
+        seStatistics.forEach(row => {
 
             const tr =
                 document.createElement("tr");
@@ -126,7 +114,6 @@ export async function initRawAbundanceModule({ webR, log }) {
 
                     td.textContent =
                         value;
-
                 }
 
 
@@ -159,28 +146,28 @@ content.appendChild(tableContainer);
 
         return {
             container,
-            rawAbundance
+            seStatistics
         };
 
 
     } catch (error) {
 
         console.error(
-            "Error loading raw abundance:",
+            "Error loading statistics:",
             error
         );
 
         status.textContent =
-            "Error loading raw abundance.";
+            "Error loading statistics."; 
 
         log(
-            `Error loading raw abundance: ${error.message}`
+            `Error loading statistics: ${error.message}`
         );
 
 
         return {
             container,
-            rawAbundance: null
+            seStatistics: null
         };
 
     }

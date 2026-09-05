@@ -396,8 +396,7 @@ function addProcessInterface() {
 
     const {
         container,
-        controls,
-        results
+        content
     } = createModule(
         "Process data"
     );
@@ -414,7 +413,7 @@ function addProcessInterface() {
         "Configure data filtering and processing options.";
 
 
-    results.appendChild(
+    content.appendChild(
         description
     );
 
@@ -500,7 +499,7 @@ function addProcessInterface() {
     // Añadir controles
     // --------------------------------------------------------
 
-    controls.append(
+    content.append(
 
         featureFilter.wrapper,
         imputation.wrapper,
@@ -725,7 +724,7 @@ export async function initProcessDataModule({
                 controls.processButton.disabled =
                     true;
 
-
+                
                 // ------------------------------------------------
                 // Ejecutar process_se() y obtener resumen
                 // ------------------------------------------------
@@ -737,6 +736,24 @@ export async function initProcessDataModule({
                     );
 
 
+               // ====================================================
+              // Preparar processed abundance table
+              // ====================================================
+
+
+
+                await webR.evalRVoid(
+                    "prepare_processed_abundance()"
+                );
+
+
+                log(
+                    "Executed: Processed abundance"
+                );
+
+                
+                
+                
                 // ------------------------------------------------
                 // Procesamiento completado correctamente
                 // ------------------------------------------------

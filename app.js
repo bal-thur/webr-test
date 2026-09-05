@@ -6,9 +6,20 @@ import { initProcessDataModule } from "./modules/process-data.js";
 // Modulo de análisis de datos
 import { initDataAnalysisModule } from "./modules/data-analysis.js";
 
-
-// Modulo de raw-abundance"
+// Modulo de raw-abundance
 import { initRawAbundanceModule } from "./modules/raw-abundance.js";
+// Modulo de se statistics
+import { initSeStatisticsModule } from "./modules/se_statistics.js";
+// Modulo de lipid metadata
+import { initLipidMetadataModule } from "./modules/lipid_metadata.js";
+// Modulo de lipid number
+import { initLipidNumberModule } from "./modules/lipid_number.js";
+
+
+
+// Modulo de processed-abundance
+import { initProcessedAbundanceModule } from "./modules/processed-abundance.js";
+
 
 
 const output = document.getElementById("output");
@@ -51,21 +62,21 @@ dataOverview: {
         },
         
         lipidNumber: {
-            label: "Number of lipids",
+            label: "Lipid number",
             module: "lipidNumber"
         },
         
         
         statistics: {
-            label: "Descriptive statistics",
+            label: "Statistics",
             module: "statistics"
         },
         
         
         
-        identifiedLipids: {
-                label: "Identified lipids",
-                module: "identifiedLipids"
+        lipidMetadata: {
+                label: "Lipid metadata",
+                module: "lipidMetadata"
         },
         
     }
@@ -73,11 +84,11 @@ dataOverview: {
     
 
 processing: {
-    label: "Data processing"
+    label: "Process data"
 },
 
     dataQuality: {
-        label: "Data quality & processing",
+        label: "Data quality",
         children: {
             processedAbundance: {
                 label: "Processed abundance",
@@ -97,7 +108,7 @@ processing: {
     },
 
 dataAnalysis: {
-    label: "Data analysis"
+    label: "Analyse data"
 },
 
 
@@ -780,7 +791,101 @@ async function openModule(
         return rawAbundanceModule;
     }
 
+    // --------------------------------------------------------
+    // Módulo: se statistics
+    // --------------------------------------------------------
 
+    if (moduleId === "statistics") {
+
+        const seStatisticsModule =
+            await initSeStatisticsModule(
+                context
+            );
+
+
+        if (
+            currentRequestId !==
+            navigationRequestId
+        ) {
+            return;
+        }
+
+
+        moduleContainer.replaceChildren();
+
+        moduleContainer.appendChild(
+            seStatisticsModule.container
+        );
+
+
+        return seStatisticsModule;
+    }
+
+
+    // --------------------------------------------------------
+    // Módulo: Lipid metadata
+    // --------------------------------------------------------
+
+    if (moduleId === "lipidMetadata") {
+
+        const lipidMetadataModule =
+            await initLipidMetadataModule(
+                context
+            );
+
+
+        if (
+            currentRequestId !==
+            navigationRequestId
+        ) {
+            return;
+        }
+
+
+        moduleContainer.replaceChildren();
+
+        moduleContainer.appendChild(
+            lipidMetadataModule.container
+        );
+
+
+        return lipidMetadataModule;
+    }
+
+
+    // --------------------------------------------------------
+    // Módulo: Lipid number
+    // --------------------------------------------------------
+
+    if (moduleId === "lipidNumber") {
+
+        const lipidNumberModule =
+            await initLipidNumberModule(
+                context
+            );
+
+
+        if (
+            currentRequestId !==
+            navigationRequestId
+        ) {
+            return;
+        }
+
+
+        moduleContainer.replaceChildren();
+
+        moduleContainer.appendChild(
+            lipidNumberModule.container
+        );
+
+
+        return lipidNumberModule;
+    }
+
+ 
+    
+    
     // --------------------------------------------------------
     // Data processing
     // --------------------------------------------------------
@@ -849,6 +954,39 @@ async function openModule(
 
         return processModule;
     }
+
+
+    // --------------------------------------------------------
+    // Módulo: Processed abundance
+    // --------------------------------------------------------
+
+    if (moduleId === "processedAbundance") {
+
+        const processedAbundanceModule =
+            await initProcessedAbundanceModule(
+                context
+            );
+
+
+        if (
+            currentRequestId !==
+            navigationRequestId
+        ) {
+            return;
+        }
+
+
+        moduleContainer.replaceChildren();
+
+        moduleContainer.appendChild(
+            processedAbundanceModule.container
+        );
+
+
+        return processedAbundanceModule;
+    }
+
+
 
 
     // --------------------------------------------------------
@@ -1017,13 +1155,23 @@ log("Creando directorios...");
 
 log("Cargando scripts...");
 
+// Etapa 1 
+
     await copyFileToWebR(webR,"./R/setup.R","/R/setup.R");
     await copyFileToWebR(webR,"./R/import_data.R","/R/import_data.R");
     await copyFileToWebR(webR,"./R/rawAbundance.R","/R/rawAbundance.R");
-    
-    
+    await copyFileToWebR(webR,"./R/se_statistics.R","/R/se_statistics.R");
+    await copyFileToWebR(webR,"./R/lipid_metadata.R","/R/lipid_metadata.R");
+    await copyFileToWebR(webR,"./R/lipid_number.R","/R/lipid_number.R")
+
+// Etapa 2
+
     await copyFileToWebR(webR,"./R/get_process_options.R","/R/get_process_options.R");
     await copyFileToWebR(webR,"./R/process_se.R","/R/process_se.R");
+    await copyFileToWebR(webR,"./R/processedAbundance.R","/R/processedAbundance.R");
+    
+// Etapa 3    
+    
     
     // ========================================================
     // Cargar archivos
@@ -1081,12 +1229,20 @@ log("Entorno R preparado correctamente.");
 // Inicializar módulo de importación
 // ========================================================
 
-buildNavigation({
-    webR,
-    log
-});
+    buildNavigation({
+        webR,
+        log
+    });
 
 
+// ========================================================
+// Aplicación lista
+ // ========================================================
+
+    const appLoading =
+        document.getElementById("app-loading");
+
+    appLoading.hidden = true;
     
 }
 

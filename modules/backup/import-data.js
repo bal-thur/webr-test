@@ -55,7 +55,8 @@ export async function initImportDataModule({
 
     const {
         container,
-        content
+        controls,
+        results
     } = createModule(
         "Import data"
     );
@@ -90,11 +91,11 @@ export async function initImportDataModule({
     // Construir contenido
     // ============================================================
 
-    content.appendChild(
+    controls.appendChild(
         input
     );
 
-    content.appendChild(
+    results.appendChild(
         status
     );
 
