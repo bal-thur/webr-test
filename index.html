@@ -1,17 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>WebR test</title>
+
+
+    <!-- Choices.js -->
+
+    <link
+        rel="stylesheet"
+        href="./css/choices.min.css"
+    >
+
+
+    <!-- Application stylesheet -->
+
+    <link
+        rel="stylesheet"
+        href="./css/app.css"
+    >
+
 </head>
+
 
 <body>
 
-    <h1>WebR test</h1>
+    <div id="app">
 
-    <pre id="output">Starting WebR...</pre>
 
-    <script type="module" src="./app.js"></script>
+        <!-- ==================================================
+             SIDEBAR
+             ================================================== -->
+
+        <aside
+            id="sidebar"
+            class="sidebar"
+            aria-label="Navigation"
+        >
+
+            <div class="sidebar-brand">
+<img src="./assets/logo.png" alt="Project logo">
+
+                  <!--<div class="sidebar-title"> Lipidomic data analysis
+                </div>-->
+
+            </div>
+
+
+            <nav
+                id="module-navigation"
+                class="module-navigation"
+            >
+                <!--
+                    La navegación será creada
+                    dinámicamente por app.js.
+                -->
+            </nav>
+
+        </aside>
+
+
+        <!-- ==================================================
+             MAIN APPLICATION AREA
+             ================================================== -->
+
+        <main
+            id="main"
+            class="main"
+        >
+
+            <div
+                id="module-container"
+                class="module-container"
+            >
+                <!--
+                    Los módulos se cargarán aquí.
+                -->
+            </div>
+
+
+            <!--
+                Mantendremos temporalmente el output
+                de diagnóstico de WebR.
+            -->
+
+            <pre id="output">
+Starting WebR...
+            </pre>
+
+        </main>
+
+    </div>
+
+
+    <!-- ==================================================
+         Choices.js
+         ================================================== -->
+
+    <script
+        src="./lib/choices/choices.min.js"
+    ></script>
+
+
+    <!-- ==================================================
+         Aplicación
+         ================================================== -->
+
+    <script
+        type="module"
+        src="./app.js"
+    ></script>
 
 </body>
+
 </html>

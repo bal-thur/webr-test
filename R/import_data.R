@@ -265,7 +265,13 @@ prepare_col_data <- function(group_info) {
 
 ## Función para preparar "row_data" de "se"
 
-prepare_row_data <- function(features, lipid_info) {
+prepare_row_data <- function(features) {
+  
+  # 0. Cargar lipid_data
+  lipid_info <- read.csv(
+    "/data/lipid_data.csv",
+    stringsAsFactors = FALSE
+  )
   
   # 1. Comprobar que lipid_info contiene la columna feature
 
@@ -410,8 +416,7 @@ import_analysis_excel <- function(path) {
   # 5. Preparar rowData a partir de lipid_info
   
   row_data <- prepare_row_data(
-    validated$features,
-    lipid_data
+    validated$features
   )
   
   # 6. Preparar colData a partir de group_info
@@ -439,7 +444,27 @@ import_analysis_excel <- function(path) {
   )
   
   
-  # 9. Guardar el objeto como se
+  # 9. Invalidar cualquier processed_se anterior
+  #
+  # Una nueva importación significa que cualquier
+  # procesamiento anterior corresponde a otro dataset
+  # y ya no es válido.
+  
+  if (exists(
+    "processed_se",
+    envir = .GlobalEnv,
+    inherits = FALSE
+  )) {
+    
+    rm(
+      "processed_se",
+      envir = .GlobalEnv
+    )
+  }
+  
+  
+  
+  # 10. Guardar el objeto como se
   
   assign(
     "se",
@@ -684,12 +709,11 @@ create_and_store_palettes <- function() {
     )
   }
   
-  if (!exists("palette", envir = .GlobalEnv, inherits = FALSE)) {
-    stop(
-      "No existe la paleta de colores.",
-      call. = FALSE
-    )
-  }
+  palette <- read.csv(
+    "/data/palette.csv",
+    stringsAsFactors = FALSE
+  )
+  
   
   palettes <- create_palettes(
     se,

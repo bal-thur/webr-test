@@ -1,0 +1,426 @@
+/* ==================================================
+   Lipidomics viewer - single application stylesheet
+   ================================================== */
+
+/* --------------------------------------------------
+   Global application layout
+   -------------------------------------------------- */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+body {
+    overflow: hidden;
+    min-width: 0;
+    min-height: 0;
+}
+
+#app {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* --------------------------------------------------
+   Fixed sidebar
+   -------------------------------------------------- */
+.sidebar {
+    flex: 0 0 250px;
+    width: 250px;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px 14px;
+    border-right: 1px solid #d9d9d9;
+    background: #fafafa;
+}
+
+.sidebar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 8px 20px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.sidebar-brand img {
+    width: 150px;
+    height: auto;
+    max-height: 60px;
+    object-fit: contain;
+}
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    color: #222;
+}
+
+.module-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item,
+.nav-subitem {
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    color: #333;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.nav-item:hover,
+.nav-subitem:hover {
+    background: #eeeeee;
+}
+
+.nav-item:disabled,
+.nav-subitem:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.nav-item.expanded {
+    background: #f0f0f0;
+}
+
+.nav-item.active,
+.nav-subitem.active {
+    background: #e6e6e6;
+    color: #111;
+}
+
+.nav-label {
+    min-width: 0;
+}
+
+.nav-chevron {
+    flex: 0 0 auto;
+    font-size: 14px;
+    transition: transform 0.15s ease;
+}
+
+.nav-item.expanded .nav-chevron {
+    transform: rotate(90deg);
+}
+
+.nav-children {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 2px 0 4px;
+}
+
+.nav-children[hidden] {
+    display: none;
+}
+
+.nav-subitem {
+    padding: 8px 12px 8px 30px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* --------------------------------------------------
+   Main application area
+   -------------------------------------------------- */
+.main {
+    flex: 1 1 auto;
+    width: 0;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
+    background: #fff;
+}
+
+.module-container {
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------------
+   Module shell
+   -------------------------------------------------- */
+.module-shell {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+.module-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 70px;
+    box-sizing: border-box;
+    padding: 0 30px;
+    border-bottom: 1px solid #ededed;
+    background: #fff;
+}
+
+.module-header .header-text {
+    color: #000;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.module-content {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------------
+   Common module containers
+   -------------------------------------------------- */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 0 40px 30px;
+    overflow: visible;
+}
+
+.content-container.chart-container {
+    min-width: 0;
+}
+
+.content-container ul {
+    list-style-position: inside;
+    line-height: 1.5em;
+    text-align: left;
+}
+
+.content-container img {
+    width: auto;
+    max-width: 90%;
+    max-height: 100%;
+}
+
+.content-container object {
+    width: 95%;
+    height: 100%;
+}
+
+.selector-panel {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 25px;
+    align-items: flex-end;
+    width: 100%;
+    min-width: max-content;
+    margin-bottom: 20px;
+}
+
+.selector-group {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+}
+
+.selector-group label {
+    margin-bottom: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    text-align: left;
+}
+
+.plot-selector {
+    width: 260px;
+    min-width: 260px;
+    padding: 8px 10px;
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    background: #f5f5f5;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------------
+   Plot areas
+   -------------------------------------------------- */
+.plot-container {
+    width: 100%;
+    min-width: 0;
+    height: 650px;
+    min-height: 650px;
+}
+
+.grid-70-30 {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+    min-height: 650px;
+}
+
+.grid-70-30 > .plot-container {
+    height: 650px;
+    min-height: 650px;
+}
+
+/* --------------------------------------------------
+   Reusable two-content helper
+   -------------------------------------------------- */
+.content-container.two-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.content-container.two-items img,
+.content-container.two-items object {
+    width: 47.5%;
+    height: auto;
+    align-self: center;
+}
+
+/* --------------------------------------------------
+   Empty / error / unavailable states
+   -------------------------------------------------- */
+.module-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 300px;
+    padding: 40px;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* --------------------------------------------------
+   Data tables
+   -------------------------------------------------- */
+
+.data-table-container {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border: 1px solid #d9d9d9;
+}
+
+
+.data-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+
+.data-table th,
+.data-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e5e5e5;
+    border-right: 1px solid #eeeeee;
+    white-space: nowrap;
+}
+
+
+.data-table th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #f5f5f5;
+    font-weight: 600;
+}
+
+
+.data-table td,
+.data-table th {
+    text-align: left;
+}
+
+
+.data-table td:nth-child(n + 4),
+.data-table th:nth-child(n + 4) {
+    text-align: right;
+}
+
+.data-table tbody tr:hover {
+    background: #f7f7f7;
+}
+
+
+
+
+/* --------------------------------------------------
+   Responsive behaviour
+   -------------------------------------------------- */
+@media (max-width: 900px) {
+    .sidebar {
+        flex-basis: 210px;
+        width: 210px;
+    }
+
+    .sidebar-title {
+        font-size: 16px;
+    }
+
+    .module-header {
+        padding-left: 24px;
+    }
+
+    .module-header .header-text {
+        font-size: 24px;
+    }
+
+    .content-container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}

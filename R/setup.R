@@ -1,7 +1,7 @@
 #### Setup
 
 message("Iniciando setup")
-
+setup_ok <- FALSE
 
 ## ============================================================
 ## 1. Instalación de librerías
@@ -20,7 +20,8 @@ packages <- c(
   "ggplot2",
   "S4Vectors",
   "SummarizedExperiment",
-  "readxl"
+  "readxl",
+  "jsonlite"
 )
 
 message("Instalando paquetes...")
@@ -62,26 +63,44 @@ for (pkg in packages) {
 }
 
 
+missing_packages <- packages[
+  !packages %in% installed
+]
+
+if (length(missing_packages) > 0) {
+  
+  stop(
+    paste0(
+      "No se pudieron instalar todos los paquetes requeridos: ",
+      paste(missing_packages, collapse = ", ")
+    ),
+    call. = FALSE
+  )
+}
+
 ## ============================================================
 ## 3. Cargar scripts R
 ## ============================================================
 
 source("/R/import_data.R")
+source("/R/get_process_options.R")
+source("/R/process_se.R")
+source("/R/rawAbundance.R")
 
 
 ## ============================================================
 ## 4. Cargar archivos de configuración
 ## ============================================================
 
-lipid_data <- read.csv(
-  "/data/lipid_data.csv",
-  stringsAsFactors = FALSE
-)
+#lipid_data <- read.csv(
+#  "/data/lipid_data.csv",
+#  stringsAsFactors = FALSE
+#)
 
-palette <- read.csv(
-  "/data/palette.csv",
-  stringsAsFactors = FALSE
-)
+#palette <- read.csv(
+#  "/data/palette.csv",
+#  stringsAsFactors = FALSE
+#)
 
 process_parameters <- read.csv(
   "/data/process_parameters.csv",
@@ -162,7 +181,8 @@ for (i in seq_len(nrow(process_parameters))) {
     converted_value
 }
 
-## Limpiar memoria
+
 rm(process_parameters)
 
+setup_ok <- TRUE
 message("Setup terminado")

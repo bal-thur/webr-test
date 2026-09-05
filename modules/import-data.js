@@ -1,70 +1,23 @@
 // Ruta donde guardaremos temporalmente el Excel
 
-const R_EXCEL_PATH = "/data/import.xlsx";
+const R_EXCEL_PATH =
+    "/data/import.xlsx";
 
 
-function addImportInterface() {
-
-    // Crea un contenedor HTML <section> donde vivirá toda la interfaz de importación.
-    const container = document.createElement("section");
-
-    // Crea el título que verá el usuario.
-    const title = document.createElement("h2");
-
-    // Crea el selector de archivos del navegador.
-    const input = document.createElement("input");
-
-    // Crea una zona de texto donde mostraremos  el estado de la importación y posibles errores.
-    const status = document.createElement("pre");
-
-
-    // Texto que aparecerá como título.
-    title.textContent = "Importar datos";
-
-
-    // Convierte el elemento <input> en un selector de archivos.
-    input.type = "file";
-
-    // Le indicamos al navegador que esperamos un archivo Excel .xlsx.
-    input.accept =
-        ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-
-
-    // Mensaje inicial que aparece debajo del selector.
-    status.textContent =
-        "Selecciona un archivo Excel con el formato definido.";
-
-
-    // Mete dentro del <section>:
-    //
-    //   Importar datos
-    //   [selector de archivo]
-    //   mensaje de estado
-    //
-    container.append(title, input, status);
-
-    // Añade el <section> al HTML de la aplicación.
-    document.body.append(container);
-
-
-    // Devolvemos estos dos elementos para poder utilizarlos
-    // posteriormente desde initImportDataModule().
-    return { input, status };
-}
+import { createModule } from "./module-template.js";
 
 
 function formatError(error) {
 
-    // Si el error es un objeto Error de JavaScript,
-    // obtenemos su mensaje.
-    //
-    // Si no lo es, lo convertimos simplemente a texto.
     const message =
-        error instanceof Error ? error.message : String(error);
+        error instanceof Error
+            ? error.message
+            : String(error);
 
-    // Elimina un posible "Error: " del principio
-    // para que el mensaje mostrado sea más limpio.
-    return message.replace(/^Error:\s*/, "");
+    return message.replace(
+        /^Error:\s*/,
+        ""
+    );
 }
 
 
@@ -78,200 +31,273 @@ function formatError(error) {
  *   log   -> función de app.js para escribir mensajes
  *            en la salida principal
  */
-export async function initImportDataModule({ webR, log }) {
+export async function initImportDataModule({
+    webR,
+    log,
+    onImportCompleted
+}) {
+
+    let resolveImport;
+    let rejectImport;
+
+    const importCompleted =
+        new Promise((resolve, reject) => {
+
+            resolveImport = resolve;
+            rejectImport = reject;
+
+        });
 
 
-    // Crea la interfaz HTML y recupera:
-    //
-    //   input  -> selector de archivo
-    //   status -> zona donde mostramos el estado
-    const { input, status } = addImportInterface();
+    // ============================================================
+    // Crear interfaz del módulo
+    // ============================================================
+
+    const {
+        container,
+        controls,
+        results
+    } = createModule(
+        "Import data"
+    );
 
 
-    // En este punto el módulo ya está disponible.
+    // ============================================================
+    // Selector de archivo
+    // ============================================================
+
+    const input =
+        document.createElement("input");
+
+    input.type =
+        "file";
+
+    input.accept =
+        ".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+
+    // ============================================================
+    // Zona de estado
+    // ============================================================
+
+    const status =
+        document.createElement("pre");
+
+    status.textContent =
+        "Selecciona un archivo Excel con el formato definido.";
+
+
+    // ============================================================
+    // Construir contenido
+    // ============================================================
+
+    controls.appendChild(
+        input
+    );
+
+    results.appendChild(
+        status
+    );
+
+
+    // ============================================================
+    // Estado inicial
+    // ============================================================
+
     status.textContent =
         "Módulo de importación listo. Selecciona un archivo Excel.";
 
-    log("Módulo de importación de datos listo.");
+    log(
+        "Módulo de importación de datos listo."
+    );
 
 
-    /*
-     * Aquí empieza la parte importante.
-     *
-     * addEventListener("change", ...)
-     *
-     * significa:
-     *
-     * "Cuando el usuario cambie el archivo seleccionado,
-     * ejecuta esta función".
-     */
-    input.addEventListener("change", async () => {
+    // ============================================================
+    // Importación
+    // ============================================================
+
+    input.addEventListener(
+        "change",
+        async () => {
+
+            const [file] =
+                input.files;
 
 
-        // input.files contiene los archivos seleccionados.
-        //
-        // Nosotros esperamos solamente uno.
-        //
-        // [file] extrae el primer archivo.
-        const [file] = input.files;
+            if (!file) {
+                return;
+            }
 
 
-        // Si por algún motivo no hay archivo,
-        // no hacemos nada.
-        if (!file) {
-            return;
-        }
+            // --------------------------------------------------------
+            // Comprobar extensión
+            // --------------------------------------------------------
+
+            if (
+                !file.name
+                    .toLowerCase()
+                    .endsWith(".xlsx")
+            ) {
+
+                status.textContent =
+                    "ERROR: selecciona un archivo .xlsx.";
+
+                input.value = "";
+
+                return;
+            }
 
 
-        // Comprobamos que el archivo tenga extensión .xlsx.
-        // Esto es solamente una primera comprobación realizada por JavaScript.
-        //
-        // La validación REAL de la estructura del Excel la hará posteriormente R.
-        if (!file.name.toLowerCase().endsWith(".xlsx")) {
+            // --------------------------------------------------------
+            // Ejecutar importación
+            // --------------------------------------------------------
 
-            status.textContent =
-                "ERROR: selecciona un archivo .xlsx.";
+            try {
 
-            // Vacía el selector.
-            input.value = "";
+                // ====================================================
+                // 1. Importar Excel y crear SummarizedExperiment
+                // ====================================================
 
-            return;
-        }
+                status.textContent =
+                    `Importando ${file.name}...`;
 
 
-        /*
-         * A partir de aquí empieza el proceso de importación.
-         *
-         * try/catch permite capturar errores de:
-         *
-         *   - JavaScript
-         *   - WebR
-         *   - R
-         *   - lectura/escritura del archivo
-         */
-        try {
+                const data =
+                    new Uint8Array(
+                        await file.arrayBuffer()
+                    );
 
 
-            // Informa al usuario de que el archivo se está procesando.
-            status.textContent =
-                `Importando ${file.name}...`;
-
-
-            /*
-             * file.arrayBuffer()
-             *
-             * Lee el archivo seleccionado por el navegador
-             * como una secuencia de bytes.
-             *
-             * Esto todavía NO es un archivo dentro de R.
-             */
-            const data =
-                new Uint8Array(await file.arrayBuffer());
-
-
-            /*
-             * Aquí ocurre el puente:
-             *
-             * navegador
-             *      ↓
-             * bytes
-             *      ↓
-             * filesystem virtual de WebR
-             *
-             * El archivo termina siendo:
-             *
-             * /data/import.xlsx
-             *
-             * dentro de WebR.
-             */
-            await webR.FS.writeFile(
-                R_EXCEL_PATH,
-                data
-            );
-
-
-            /*
-             * Ahora JavaScript le pide a R que ejecute
-             * una función que ya debería existir en la sesión R.
-             *
-             * IMPORTANTE:
-             *
-             * JavaScript NO está leyendo el Excel.
-             *
-             * JavaScript solamente lo ha colocado en:
-             *
-             * /data/import.xlsx
-             *
-             * La lectura y validación del Excel la hace R.
-             */
-            await webR.evalRVoid(
-                `import_analysis_excel("${R_EXCEL_PATH}")`
-            );
-
-
-            /*
-             * La función anterior crea el objeto "se".
-             *
-             * Después pedimos a R un resumen del objeto.
-             *
-             * evalRString() significa que esperamos que R
-             * devuelva un texto.
-             */
-            status.textContent =
-                await webR.evalRString(
-                    "summarise_imported_se()"
+                await webR.FS.writeFile(
+                    R_EXCEL_PATH,
+                    data
                 );
 
 
-            // Mensaje en la salida general de app.js.
-            log(
-                "Excel importado y objeto se creado."
-            );
-            
-            
-            
-            
-            // 3. Crear y guardar las paletas
-            // ----------------------------------------------------------
-            
-            status.textContent =
-            "Creando paletas...";
-            
-            await webR.evalRVoid(
-              "create_and_store_palettes()"
-              );
+                await webR.evalRVoid(
+                    `import_analysis_excel("${R_EXCEL_PATH}")`
+                );
 
 
-        } catch (error) {
+                log(
+                    "Excel importado y objeto creado."
+                );
 
 
-            // También dejamos el error en la consola de desarrollo del navegador.
-            console.error(error);
+                // ====================================================
+                // 2. Obtener resumen del SummarizedExperiment
+                // ====================================================
+
+                status.textContent =
+                    "Datos importados. Preparando resumen.";
 
 
-            // Convertimos el error a un mensaje legible.
-            const message =
-                formatError(error);
+                const summary =
+                    await webR.evalRString(
+                        "summarise_imported_se()"
+                    );
 
 
-            // Mostramos el error en el módulo.
-            status.textContent =
-                `ERROR: ${message}`;
+                // ====================================================
+                // 3. Crear y guardar las paletas
+                // ====================================================
+
+                status.textContent =
+                    "Datos importados. Creando paletas.";
 
 
-            // Y también en la salida general de app.js.
-            log(
-                `ERROR de importación: ${message}`
-            );
+                await webR.evalRVoid(
+                    "create_and_store_palettes()"
+                );
 
 
-        } finally {
+                log(
+                    "Executed: Color palettes."
+                );
 
 
-            // Después de terminar, vaciamos el selector.
-            //
-            // Esto permite volver a seleccionar el mismo archivo posteriormente si fuera necesario.
-            input.value = "";
+                // ====================================================
+                // 4. Preparar raw abundance
+                // ====================================================
+
+                status.textContent =
+                    "Executing: Raw abundance";
+
+
+                await webR.evalRVoid(
+                    "prepare_raw_abundance()"
+                );
+
+
+                log(
+                    "Executed: Raw abundance"
+                );
+
+
+                // ====================================================
+                // Fin
+                // ====================================================
+
+                status.textContent =
+                    `Datos importados correctamente.\n\n${summary}\n\nPaletas creadas correctamente.`;
+
+
+                log(
+                    "Importación completada correctamente."
+                );
+
+
+                resolveImport();
+
+
+                if (onImportCompleted) {
+
+                    onImportCompleted();
+
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                const message =
+                    formatError(
+                        error
+                    );
+
+
+                status.textContent =
+                    `ERROR: ${message}`;
+
+
+                log(
+                    `ERROR de importación: ${message}`
+                );
+
+
+                rejectImport(
+                    error
+                );
+
+
+            } finally {
+
+                input.value = "";
+
+            }
+
         }
-    });
+    );
+
+
+    return {
+        container,
+        input,
+        status,
+        importCompleted
+    };
 }
