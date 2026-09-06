@@ -18,7 +18,9 @@ import { initTotalAbundanceModule } from "./modules/lipid_total_abundance.js";
 import { initProcessDataModule } from "./modules/process-data.js";
 // Modulo de processed-abundance
 import { initProcessedAbundanceModule } from "./modules/processed-abundance.js";
-
+// Modulo de Boxplot of Abundance
+import { initBoxplotAbundanceModule } from "./modules/boxplot_abundance.js";
+// Modulo de Density plot
 
 // Modulo de análisis de datos
 import { initDataAnalysisModule } from "./modules/data-analysis.js";
@@ -74,8 +76,6 @@ dataOverview: {
             module: "statistics"
         },
         
-        
-        
         lipidMetadata: {
                 label: "Lipid metadata",
                 module: "lipidMetadata"
@@ -102,9 +102,9 @@ processing: {
                 module: "abundanceDistribution"
             },
             
-            boxplot: {
+            boxplotAbundance: {
                 label: "Boxplot",
-                module: "boxplot"
+                module: "boxplotAbundance"
             }
         }
     },
@@ -988,8 +988,7 @@ async function openModule(
         return processModule;
     }
 
-
-    // --------------------------------------------------------
+   // --------------------------------------------------------
     // Módulo: Processed abundance
     // --------------------------------------------------------
 
@@ -1020,6 +1019,35 @@ async function openModule(
     }
 
 
+    // --------------------------------------------------------
+    // Módulo: Boxplot of abundance
+    // --------------------------------------------------------
+
+    if (moduleId === "boxplotAbundance") {
+
+        const boxplotAbundanceModule =
+            await initBoxplotAbundanceModule(
+                context
+            );
+
+
+        if (
+            currentRequestId !==
+            navigationRequestId
+        ) {
+            return;
+        }
+
+
+        moduleContainer.replaceChildren();
+        
+        moduleContainer.appendChild(
+            boxplotAbundanceModule.container
+        );
+
+
+        return boxplotAbundanceModule;
+    }
 
 
     // --------------------------------------------------------
@@ -1203,6 +1231,7 @@ log("Cargando scripts...");
     await copyFileToWebR(webR,"./R/get_process_options.R","/R/get_process_options.R");
     await copyFileToWebR(webR,"./R/process_se.R","/R/process_se.R");
     await copyFileToWebR(webR,"./R/processedAbundance.R","/R/processedAbundance.R");
+    await copyFileToWebR(webR,"./R/boxplot_abundance.R","/R/boxplot_abundance.R");
     
 // Etapa 3    
     

@@ -418,6 +418,7 @@ function addProcessInterface() {
     );
 
 
+    
     // --------------------------------------------------------
     // Selectores de procesamiento
     // --------------------------------------------------------
@@ -478,6 +479,19 @@ function addProcessInterface() {
         });
 
 
+      // --------------------------------------------------------
+      // Zona de estado
+      // --------------------------------------------------------
+
+      const status =
+      document.createElement("p");
+
+      status.textContent =
+        "";
+
+      status.className =
+      "process-status";
+      
     // --------------------------------------------------------
     // Botón de procesamiento
     // --------------------------------------------------------
@@ -510,7 +524,8 @@ function addProcessInterface() {
         subgroups.wrapper,
         samples.wrapper,
 
-        processButton
+        processButton,
+        status
     );
 
 
@@ -539,7 +554,9 @@ function addProcessInterface() {
         samples:
             samples.choices,
 
-        processButton
+        
+        processButton,
+        status
     };
 }
 
@@ -713,6 +730,9 @@ export async function initProcessDataModule({
 
             try {
 
+                controls.status.textContent =
+                    "Processing data ...";
+                    
                 log(
                     `Processing data with ${validation.remainingSamples.length} remaining samples...`
                 );
@@ -736,9 +756,12 @@ export async function initProcessDataModule({
                     );
 
 
-               // ====================================================
+              // ====================================================
               // Preparar processed abundance table
               // ====================================================
+              
+              controls.status.textContent =
+                    "Preparing processed abundance...";
 
 
 
@@ -753,11 +776,32 @@ export async function initProcessDataModule({
 
                 
                 
-                
+                              // ====================================================
+              // Preparar processed abundance table
+              // ====================================================
+              
+              controls.status.textContent =
+                    "Preparing boxplot of abundance...";
+
+
+
+                await webR.evalRVoid(
+                    "prepare_abundance_boxplot()"
+                );
+
+
+                log(
+                    "Executed: Boxplot of abundance."
+                );
+
+              
                 // ------------------------------------------------
                 // Procesamiento completado correctamente
                 // ------------------------------------------------
 
+                controls.status.textContent =
+                    "Data processing completed.";
+                
                 log(
                     "Data processing completed."
                 );

@@ -84,6 +84,9 @@ export async function initImportDataModule({
 
     status.textContent =
         "Selecciona un archivo Excel con el formato definido.";
+        
+    status.className =
+      "process-status";    
 
 
     // ============================================================
