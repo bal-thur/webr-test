@@ -1,11 +1,7 @@
 import { WebR, ChannelType } from "./webr.mjs";
+
 // Modulo de importación de datos
 import { initImportDataModule } from "./modules/import-data.js";
-// Modulo de procesamiento de datos
-import { initProcessDataModule } from "./modules/process-data.js";
-// Modulo de análisis de datos
-import { initDataAnalysisModule } from "./modules/data-analysis.js";
-
 // Modulo de raw-abundance
 import { initRawAbundanceModule } from "./modules/raw-abundance.js";
 // Modulo de se statistics
@@ -14,12 +10,18 @@ import { initSeStatisticsModule } from "./modules/se_statistics.js";
 import { initLipidMetadataModule } from "./modules/lipid_metadata.js";
 // Modulo de lipid number
 import { initLipidNumberModule } from "./modules/lipid_number.js";
+// Modulo de lipid total abundance
+import { initTotalAbundanceModule } from "./modules/lipid_total_abundance.js";
 
 
-
+// Modulo de procesamiento de datos
+import { initProcessDataModule } from "./modules/process-data.js";
 // Modulo de processed-abundance
 import { initProcessedAbundanceModule } from "./modules/processed-abundance.js";
 
+
+// Modulo de análisis de datos
+import { initDataAnalysisModule } from "./modules/data-analysis.js";
 
 
 const output = document.getElementById("output");
@@ -56,9 +58,9 @@ dataOverview: {
             module: "rawAbundance"
         },
         
-        AbundancebySample: {
-            label: "Abundance by sample",
-            module: "AbundancebySample"
+        totalAbundance: {
+            label: "Lipid total abundance",
+            module: "totalAbundance"
         },
         
         lipidNumber: {
@@ -883,6 +885,37 @@ async function openModule(
         return lipidNumberModule;
     }
 
+     // --------------------------------------------------------
+    // Módulo: Lipid total abundance
+    // --------------------------------------------------------
+
+    if (moduleId === "totalAbundance") {
+
+        const totalAbundanceModule =
+            await initTotalAbundanceModule(
+                context
+            );
+
+
+        if (
+            currentRequestId !==
+            navigationRequestId
+        ) {
+            return;
+        }
+
+
+        moduleContainer.replaceChildren();
+
+        moduleContainer.appendChild(
+            totalAbundanceModule.container
+        );
+
+
+        return totalAbundanceModule;
+    }
+
+ 
  
     
     
@@ -1163,6 +1196,7 @@ log("Cargando scripts...");
     await copyFileToWebR(webR,"./R/se_statistics.R","/R/se_statistics.R");
     await copyFileToWebR(webR,"./R/lipid_metadata.R","/R/lipid_metadata.R");
     await copyFileToWebR(webR,"./R/lipid_number.R","/R/lipid_number.R")
+    await copyFileToWebR(webR,"./R/lipid_total_abundance.R","/R/lipid_total_abundance.R")
 
 // Etapa 2
 

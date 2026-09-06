@@ -1,12 +1,12 @@
 import { createModule } from "./module-template.js";
 
 
-export async function initLipidNumberModule({ webR, log }) {
+export async function initTotalAbundanceModule({ webR, log }) {
 
     const {
         container,
         content
-    } = createModule("Lipid Number");
+    } = createModule("Lipid total abundance");
 
 
     try {
@@ -17,22 +17,22 @@ export async function initLipidNumberModule({ webR, log }) {
 
         const json =
             await webR.evalRString(
-                "get_lipid_number()"
+                "get_lipid_total_abundance()"
             );
 
 
-        const lipidNumberData =
+        const lipidTotalAbundanceData =
             JSON.parse(json);
 
 
         log(
-            "Lipid number data received from R."
+            "Lipid total abundance data received from R."
         );
 
 
         console.log(
-            "Lipid number data:",
-            lipidNumberData
+            "Lipid total abundance:",
+            lipidTotalAbundanceData
         );
 
 
@@ -41,34 +41,34 @@ export async function initLipidNumberModule({ webR, log }) {
 // ============================================================
 
 const data =
-    lipidNumberData.data;
+    lipidTotalAbundanceData.data;
 
 const levels =
-    lipidNumberData.levels;
+    lipidTotalAbundanceData.levels;
 
 const title =
-    lipidNumberData.title;
+    lipidTotalAbundanceData.title;
 
 const titleXaxis =
-    lipidNumberData.title_xaxis;
+    lipidTotalAbundanceData.title_xaxis;
 
 const titleYaxis =
-    lipidNumberData.title_yaxis;
+    lipidTotalAbundanceData.title_yaxis;
 
 const legendTitle =
-    lipidNumberData.legend_title;
+    lipidTotalAbundanceData.legend_title;
 
 const caption =
-    lipidNumberData.caption;
+    lipidTotalAbundanceData.caption;
 
 
 console.log(
-    "Lipid number data:",
+    "Lipid total abundance data:",
     data
 );
 
 console.log(
-    "Lipid number levels:",
+    "Lipid total abundance levels:",
     levels
 );
 
@@ -115,7 +115,7 @@ const traces =
                 ),
 
                 y: levelData.map(
-                    row => row.lipid_number
+                    row => row.lipid_total_abundance
                 ),
 
                 marker: {
@@ -123,7 +123,7 @@ const traces =
                 },
 
                 // text: levelData.map(
-                //     row => row.lipid_number
+                //     row => row.lipid_total_abundance
                 // ),
 
                 textposition: "auto",
@@ -264,7 +264,7 @@ requestAnimationFrame(() => {
 
 
         log(
-            "Lipid number plot created."
+            "Lipid total abundance plot created."
         );
 
 
@@ -276,13 +276,13 @@ requestAnimationFrame(() => {
     } catch (error) {
 
         console.error(
-            "Error loading lipid number:",
+            "Error loading Lipid total abundance:",
             error
         );
 
 
         log(
-            `Error loading lipid number: ${error.message}`
+            `Error loading Lipid total abundance: ${error.message}`
         );
 
 

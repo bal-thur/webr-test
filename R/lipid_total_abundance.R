@@ -1,4 +1,4 @@
-prepare_lipid_number <- function() {
+prepare_lipid_total_abundance <- function() {
   
   # ----------------------------------------------------------
   # Extraer abundancia
@@ -18,7 +18,7 @@ prepare_lipid_number <- function() {
     SummarizedExperiment::colData(se)
   )
   
-
+  
   
   # ----------------------------------------------------------
   # Determinar variable de agrupación
@@ -54,18 +54,20 @@ prepare_lipid_number <- function() {
     palettes[[grouping_variable]]
   )
   
-
+  
   # ----------------------------------------------------------
-  # Número de lípidos detectados por muestra
+  # Suma de abundancia total de lípidos
   # ----------------------------------------------------------
   
-  lipid_number <-
+  lipid_total_abundance <-
     data.frame(
       sample = colnames(abundance),
-      lipid_number = colSums(!is.na(abundance)),
+      lipid_total_abundance = colSums(
+        abundance,
+        na.rm = TRUE
+      ),
       stringsAsFactors = FALSE
     )
-  
   
   # ----------------------------------------------------------
   # Añadir información de grupo
@@ -81,8 +83,8 @@ prepare_lipid_number <- function() {
     )
   
   
-  lipid_number <- merge(
-    lipid_number,
+  lipid_total_abundance <- merge(
+    lipid_total_abundance,
     sample_groups,
     by = "sample",
     all.x = TRUE,
@@ -94,24 +96,24 @@ prepare_lipid_number <- function() {
   # Mantener el orden original de las muestras
   # ----------------------------------------------------------
   
-  lipid_number$sample <- factor(
-    lipid_number$sample,
+  lipid_total_abundance$sample <- factor(
+    lipid_total_abundance$sample,
     levels = sample_info$sample_name
   )
   
-  lipid_number$group <- factor(
-    lipid_number$group,
+  lipid_total_abundance$group <- factor(
+    lipid_total_abundance$group,
     levels = groups
   )
   
   
-  lipid_number <- lipid_number[
-    order(lipid_number$sample),
+  lipid_total_abundance <- lipid_total_abundance[
+    order(lipid_total_abundance$sample),
   ]
   
   
-  rownames(lipid_number) <- seq_len(
-    nrow(lipid_number)
+  rownames(lipid_total_abundance) <- seq_len(
+    nrow(lipid_total_abundance)
   )
   
   
@@ -119,10 +121,10 @@ prepare_lipid_number <- function() {
   # Añadir color
   # ----------------------------------------------------------
   
-  lipid_number$color <-
+  lipid_total_abundance$color <-
     unname(
       palette[
-        as.character(lipid_number$group)
+        as.character(lipid_total_abundance$group)
       ]
     )
   
@@ -131,17 +133,17 @@ prepare_lipid_number <- function() {
   # Preparar hover text
   # ----------------------------------------------------------
   
-  lipid_number$hover_text <-
+  lipid_total_abundance$hover_text <-
     paste0(
       "<b>",
-      lipid_number$sample,
+      lipid_total_abundance$sample,
       "</b>",
       "<br>",
       legend_title,
       ": ",
-      lipid_number$group,
-      "<br>Identified lipids: ",
-      lipid_number$lipid_number,
+      lipid_total_abundance$group,
+      "<br>Total abundance: ",
+      round(lipid_total_abundance$lipid_total_abundance,3),
       "<extra></extra>"
     )
   
@@ -151,10 +153,10 @@ prepare_lipid_number <- function() {
   # ----------------------------------------------------------
   
   result <- list(
-    data = lipid_number,
-    title = "Lipid number",
+    data = lipid_total_abundance,
+    title = "Lipid total abundance",
     title_xaxis = "",
-    title_yaxis = "Number of lipids",
+    title_yaxis = "Total abundance",
     palette = palette,
     levels = groups,
     legend_title = legend_title,
@@ -166,9 +168,9 @@ prepare_lipid_number <- function() {
   # Guardar globalmente
   # ----------------------------------------------------------
   
-  lipid_number_data <<- result
+  lipid_total_abundance <<- result
   
-  invisible(lipid_number_data)
+  invisible(lipid_total_abundance)
 }
 
 # ----------------------------------------
@@ -178,10 +180,10 @@ prepare_lipid_number <- function() {
 # Obtener lipid number desde javascript
 
 
-get_lipid_number <- function() {
+get_lipid_total_abundance <- function() {
   
   jsonlite::toJSON(
-    lipid_number_data,
+    lipid_total_abundance,
     pretty = TRUE,
     auto_unbox = TRUE,
     na = "null"

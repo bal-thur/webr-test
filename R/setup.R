@@ -89,11 +89,12 @@ source("/R/rawAbundance.R")
 source("/R/se_statistics.R")
 source("/R/lipid_metadata.R")
 source("/R/lipid_number.R")
+source("/R/lipid_number.R")
 
 ## Etapa 2: Procesado y data quality
 source("/R/get_process_options.R")
 source("/R/process_se.R")
-source("/R/processedAbundance.R")
+source("/R/lipid_total_abundance.R")
 
 ## Etapa 3: Análisis
 

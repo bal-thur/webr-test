@@ -254,8 +254,8 @@ export async function initImportDataModule({
                     "Executed: Lipid Metadata"
                 );
 
-                                // ====================================================
-                // Preparar Lipid metadata
+               // ====================================================
+                // Preparar Lipid number
                 // ====================================================
 
                 status.textContent =
@@ -269,6 +269,25 @@ export async function initImportDataModule({
 
                 log(
                     "Executed: Lipid number"
+                );
+
+                
+                
+                // ====================================================
+                // Preparar Lipid total abundance
+                // ====================================================
+
+                status.textContent =
+                    "Preparing lipid total abundance...";
+
+
+                await webR.evalRVoid(
+                    "prepare_lipid_total_abundance()"
+                );
+
+
+                log(
+                    "Executed: Lipid total abundance"
                 );
 
                 
