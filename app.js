@@ -1,5 +1,7 @@
 import { WebR, ChannelType } from "./webr.mjs";
 
+// Etapa 1
+
 // Modulo de importación de datos
 import { initImportDataModule } from "./modules/import-data.js";
 // Modulo de raw-abundance
@@ -13,6 +15,7 @@ import { initLipidNumberModule } from "./modules/lipid_number.js";
 // Modulo de lipid total abundance
 import { initTotalAbundanceModule } from "./modules/lipid_total_abundance.js";
 
+// Etapa 2
 
 // Modulo de procesamiento de datos
 import { initProcessDataModule } from "./modules/process-data.js";
@@ -21,6 +24,9 @@ import { initProcessedAbundanceModule } from "./modules/processed-abundance.js";
 // Modulo de Boxplot of Abundance
 import { initBoxplotAbundanceModule } from "./modules/boxplot_abundance.js";
 // Modulo de Density plot
+import { initAbundanceDensityModule } from "./modules/density_abundance.js";
+
+// Etapa 3
 
 // Modulo de análisis de datos
 import { initDataAnalysisModule } from "./modules/data-analysis.js";
@@ -97,13 +103,13 @@ processing: {
                 module: "processedAbundance"
             },
             
-            abundanceDistribution: {
-                label: "Abundance distribution",
-                module: "abundanceDistribution"
+            densityAbundance: {
+                label: "Density of abundance",
+                module: "densityAbundance"
             },
             
             boxplotAbundance: {
-                label: "Boxplot",
+                label: "Boxplot of abundance",
                 module: "boxplotAbundance"
             }
         }
@@ -1050,6 +1056,37 @@ async function openModule(
     }
 
 
+   // --------------------------------------------------------
+    // Módulo: Density of abundance
+    // --------------------------------------------------------
+
+    if (moduleId === "densityAbundance") {
+
+        const densityAbundanceModule =
+            await initAbundanceDensityModule(
+                context
+            );
+
+
+        if (
+            currentRequestId !==
+            navigationRequestId
+        ) {
+            return;
+        }
+
+
+        moduleContainer.replaceChildren();
+        
+        moduleContainer.appendChild(
+            densityAbundanceModule.container
+        );
+
+
+        return densityAbundanceModule;
+    }
+
+
     // --------------------------------------------------------
     // Data analysis
     // --------------------------------------------------------
@@ -1232,6 +1269,7 @@ log("Cargando scripts...");
     await copyFileToWebR(webR,"./R/process_se.R","/R/process_se.R");
     await copyFileToWebR(webR,"./R/processedAbundance.R","/R/processedAbundance.R");
     await copyFileToWebR(webR,"./R/boxplot_abundance.R","/R/boxplot_abundance.R");
+    await copyFileToWebR(webR,"./R/density_abundance.R","/R/density_abundance.R");
     
 // Etapa 3    
     

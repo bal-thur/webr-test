@@ -776,8 +776,8 @@ export async function initProcessDataModule({
 
                 
                 
-                              // ====================================================
-              // Preparar processed abundance table
+              // ====================================================
+              // Preparar boxplot abundance table
               // ====================================================
               
               controls.status.textContent =
@@ -792,6 +792,25 @@ export async function initProcessDataModule({
 
                 log(
                     "Executed: Boxplot of abundance."
+                );
+
+              
+              // ====================================================
+              // Preparar density abundance table
+              // ====================================================
+              
+              controls.status.textContent =
+                    "Preparing density of abundance...";
+
+
+
+                await webR.evalRVoid(
+                    "prepare_abundance_density()"
+                );
+
+
+                log(
+                    "Executed: Density of abundance."
                 );
 
               

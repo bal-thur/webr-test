@@ -96,6 +96,7 @@ source("/R/get_process_options.R")
 source("/R/process_se.R")
 source("/R/processedAbundance.R")
 source("/R/boxplot_abundance.R")
+source("/R/density_abundance.R")
 
 ## Etapa 3: Análisis
 
