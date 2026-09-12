@@ -28,8 +28,14 @@ import { initAbundanceDensityModule } from "./modules/density_abundance.js";
 
 // Etapa 3
 
-// Modulo de análisis de datos
+// Modulo de ejecución de análisis.
 import { initDataAnalysisModule } from "./modules/data-analysis.js";
+// Modulo de PCA
+import { initPcaModule } from "./modules/pca.js";
+// Modulo de PCA features
+import { initPcaFeaturesModule } from "./modules/pcaFeatures.js";
+// Modulo de Hierchichal clustering
+import { initHclusteringModule } from "./modules/hclustering.js";
 
 
 const output = document.getElementById("output");
@@ -120,27 +126,16 @@ dataAnalysis: {
 },
 
 
-    profiling: {
-        label: "Profiling",
-        children: {
-
-            classDistribution: {
-                label: "Class distribution",
-                module: "classDistribution"
-            }
-        }
-    },
-
     dimensionalReduction: {
         label: "Dimensional reduction",
         children: {
-            pca: {
+            pcaPlot: {
                 label: "PCA",
                 module: "pcaPlot"
             },
-            pcaExplainedVariance: {
-                label: "PCA explained variance",
-                module: "pcaAdditional"
+            pcaFeatures: {
+                label: "PCA features",
+                module: "pcaFeatures"
             },
             plsda: {
                 label: "PLS-DA",
@@ -153,8 +148,8 @@ dataAnalysis: {
         label: "Hierarchical clustering",
         children: {
             heatmap: {
-                label: "Heatmap + clustering",
-                module: "heatmap"
+                label: "Hierarchichal Clustering",
+                module: "hclustering"
             }
         }
     },
@@ -1155,6 +1150,103 @@ async function openModule(
 
         return analysisModule;
     }
+    
+    
+    // --------------------------------------------------------
+    // Módulo: PCA plot
+    // --------------------------------------------------------
+
+    if (moduleId === "pcaPlot") {
+
+        const pcaPlotModule =
+            await initPcaModule(
+                context
+            );
+
+
+        if (
+            currentRequestId !==
+            navigationRequestId
+        ) {
+            return;
+        }
+
+
+        moduleContainer.replaceChildren();
+        
+        moduleContainer.appendChild(
+            pcaPlotModule.container
+        );
+
+
+        return pcaPlotModule;
+    }
+    
+    // --------------------------------------------------------
+    // Módulo: PCA Feature
+    // --------------------------------------------------------
+
+    if (moduleId === "pcaFeatures") {
+
+        const pcaFeaturesModule =
+            await initPcaFeaturesModule(
+                context
+            );
+
+
+        if (
+            currentRequestId !==
+            navigationRequestId
+        ) {
+            return;
+        }
+
+
+        moduleContainer.replaceChildren();
+        
+        moduleContainer.appendChild(
+            pcaFeaturesModule.container
+        );
+
+
+        return pcaFeaturesModule;
+    }
+
+
+    // --------------------------------------------------------
+    // Módulo: hierchichal clustering
+    // --------------------------------------------------------
+
+    if (moduleId === "hclustering") {
+
+        const HclusteringModule =
+            await initHclusteringModule(
+                context
+            );
+
+
+        if (
+            currentRequestId !==
+            navigationRequestId
+        ) {
+            return;
+        }
+
+
+        moduleContainer.replaceChildren();
+        
+        moduleContainer.appendChild(
+            HclusteringModule.container
+        );
+
+
+        return HclusteringModule;
+    }
+
+
+
+    
+    
 }
 
 
@@ -1273,6 +1365,8 @@ log("Cargando scripts...");
     
 // Etapa 3    
     
+    await copyFileToWebR(webR,"./R/PCA.R","/R/PCA.R");
+    await copyFileToWebR(webR,"./R/hclustering.R","/R/hclustering.R");
     
     // ========================================================
     // Cargar archivos

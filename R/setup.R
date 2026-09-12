@@ -99,6 +99,9 @@ source("/R/boxplot_abundance.R")
 source("/R/density_abundance.R")
 
 ## Etapa 3: Análisis
+source("/R/PCA.R")
+source("/R/hclustering.R")
+
 
 ## ============================================================
 ## 4. Cargar archivos de configuración
